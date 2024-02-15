@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root {
+  --white: #fff;
+  --black: #111;
+  --black-light: rgba(27,27,27,1);
+  --grey: rgba(204, 204, 204, 1);
+  --grey-dark: rgba(154, 154, 154, 1);
+  --grey-darker: rgba(108, 108, 108, 1);
+  --green: rgba(11, 233, 104, 1);
+  --red: rgba(255, 69, 0, 1);
+
+/* My vars */
+  --purple: rgba(130,95,233,1);
+  --purple-light: rgba(178,155,239,1);
+  --turquoise: rgba(81,163,195,1);
+  --turquoise-light: rgba(115,198,205,1);
+  --siren: rgba(127,206,148,1);
+  --siren-light: rgba(168,255,192,1);
+  --pink-light: rgba(255,175,215,1);
+  --blue-dark: rgba(44,120,183, 1);
+/* my fonts */
+  --font-heading: Rubik, sans-serif;
+  --font-article: Barlow, sans-serif;
+  /* color-scheme: light dark; */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-article);
+}
+
+a{
+  text-decoration: none !important;
+  color: inherit;
+}
+
+li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+h1{
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin: 0;
+}
+/* Custome selection css */
+::selection{
+  background-color: var(--pink-light);
+  color: var(--blue-dark)
+}
+
+/* ! Scrollbar css */
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-block: 0.4rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+  border: 2px solid #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* 
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
