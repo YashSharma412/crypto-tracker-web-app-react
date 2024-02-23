@@ -1,0 +1,116 @@
+.flex-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+.hero__section{
+    padding: 5rem 2rem;
+    justify-content: space-between;
+    align-items: flex-start !important;
+}
+
+.hero__heading{
+    font-size: 7rem;
+    transition: var(--transition-fast);
+}
+.hero__heading.track{
+    color: var(--white); 
+}
+
+.hero__heading.track:hover{
+    color: var(--black);
+    -webkit-text-stroke-width: 2px ;
+    -webkit-text-stroke-color: var(--white);
+}
+
+.hero__heading.real_time{
+    color: var(--purple);
+}
+
+.hero__text{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--grey);
+}
+
+.btns{
+    margin: 1.5rem 0 0 0;
+}
+
+.hero__img_div{
+    /* outline: 1px solid red; */
+    position: relative;
+    margin-top: 1rem;
+    padding: 0 1rem;
+    max-width: 340px;
+    min-width: 280px;
+    aspect-ratio: 4/7;
+}
+
+.iphone-img, .gradient-img{
+    display: inline-block;
+    position: absolute;
+    width: 17dvw;
+    max-width: 300px;
+    min-width: 260px;
+    transition: var(--transition-fast);
+
+}
+
+.iphone-img{
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -52%);
+    z-index: 2;
+    aspect-ratio: 4/7.8;
+}
+
+.gradient-img{
+    z-index: 1;
+    border-radius: 30px;
+    aspect-ratio: 4/7;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -43%);
+}
+
+@media only screen and (max-width: 964px){
+    .hero__heading{
+        font-size: 4rem;
+        transition: var(--transition-fast);
+    }
+    .hero__text{
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--grey);
+    }
+    .hero__section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero__img_div{
+        margin: 0 auto;
+        margin-top: 2.5rem;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 645px) {
+
+    .hero__heading{
+        font-size: 3.5rem;
+    }
+    .hero__text{
+        font-size: 1rem;
+    }
+    
+    .iphone-img, .gradient-img{
+        width: 65%;
+    }
+    .btns.flex-div{
+        margin-top: 2rem;
+        justify-content: center;
+        gap: 2rem;
+    }
+}

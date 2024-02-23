@@ -1,12 +1,15 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./Components/Common/Header";
-import Footer from "./Components/Common/Footer";
+import HomePage from "./pages/HomePage.jsx"
+import DashBoardPage from "./pages/DashBoardPage.jsx";
 function App() {
   return (
     <div>
-      <Header />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/dashboard" element={<DashBoardPage />}/>
+      </Routes>
     </div>
   );
 }

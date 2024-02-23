@@ -1,0 +1,24 @@
+.grid__container{
+    display: flex;
+    gap: 1rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin: 1rem */
+}
+
+.listCoins__table{
+    width: 95%;
+    display: block;
+    margin-inline: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    :root{
+        --fs-medium: 1rem !important
+    }
+
+    .grid__container{
+        gap: 1.5rem;
+    }
+}
