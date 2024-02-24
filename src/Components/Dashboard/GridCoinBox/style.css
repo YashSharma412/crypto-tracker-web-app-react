@@ -10,7 +10,7 @@
     backdrop-filter: saturate(180%) blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--black-light);
-    border-radius: 15px;
+    border-radius: 1.5rem;
     padding: 2rem;
     box-sizing: border-box;
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
@@ -97,7 +97,7 @@
     /* padding: 0.53rem 1rem; */
     border-radius: 2rem;
     font-weight: 700;
-    font-family: var(--font-article);
+    font-family: var(--font-heading);
     font-size: var(--fs-medium);
     border: 2px solid var(--grey);
     min-width: 90px;
@@ -111,6 +111,7 @@
 .trendingIcon{
     /* padding: 0.404rem 0; */
     min-width: 40px;
+    aspect-ratio: 1/1;
 }
 
 .ChangePercent__pill.positive{
@@ -184,7 +185,8 @@
         max-width: 360px;
         width: 100%;
     }
-    .gridCoin__price{
-        font-size: 1.2rem;
-    }
+    
+
+
+
 }

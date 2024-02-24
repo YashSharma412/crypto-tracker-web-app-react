@@ -6,7 +6,7 @@ import testCoins from "../assets/testCoins";
 
 const DashBoardPage = () => {
   // const [coins, setCoins] = useState([]);
-  const [coins, setCoins] = useState(() => testCoins.slice(0, 5));
+  const [coins, setCoins] = useState(() => testCoins);
   const getCoinsFromApi = async function () {
     console.log("-----fetch Api ran-----");
     try {

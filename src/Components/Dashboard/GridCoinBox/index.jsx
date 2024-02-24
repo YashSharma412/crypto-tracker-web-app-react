@@ -2,6 +2,8 @@ import React from "react";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
 import "./style.css";
+import { Tooltip, Zoom } from "@mui/material";
+
 const GridCoinBox = ({ coin, coinId }) => {
   return (
     <div className={`gridCoin__box ${coin.price_change_percentage_24h > 0 ? "positive" : "negative"}`}>
@@ -15,12 +17,14 @@ const GridCoinBox = ({ coin, coinId }) => {
         </div>
       </div>
       <div className="gridCoin__pills">
+
+        <Tooltip title="Percentage change last 24hrs" TransitionComponent={Zoom} arrow >
         <div className={`ChangePercent__pill ${
             coin.price_change_percentage_24h > 0 ? "positive" : "negative"
           }`}
         >
           {coin.price_change_percentage_24h.toFixed(2)}%
-        </div>
+        </div></Tooltip>
         <div
           className={`ChangePercent__pill trendingIcon ${
             coin.price_change_percentage_24h > 0 ? "positive" : "negative"
@@ -36,7 +40,9 @@ const GridCoinBox = ({ coin, coinId }) => {
         </div>
       </div>
       <div className="gridCoin__stats">
-        <h3 className={`gridCoin__price ${coin.price_change_percentage_24h > 0 ? "positive" : "negative"}`}>$ {coin.current_price.toLocaleString()}</h3>
+        <Tooltip title="Current price" TransitionComponent={Zoom} arrow>
+          <h3 className={`gridCoin__price ${coin.price_change_percentage_24h > 0 ? "positive" : "negative"}`}>$ {coin.current_price.toLocaleString()}</h3>
+        </Tooltip>
         <p>Total Volume: {coin.total_volume.toLocaleString()}</p>
         <p>Market Cap : {coin.market_cap.toLocaleString()}</p>
       </div>

@@ -51,6 +51,7 @@ export default function TabsComponent({coins}) {
             label="Grid View"
             value="grid"
             sx={btnStyle}
+            className="myTabButton"
           />
           <Tab
             icon={<FormatListBulletedIcon />}
@@ -58,6 +59,7 @@ export default function TabsComponent({coins}) {
             label="List View"
             value="list"
             sx={btnStyle}
+            className="myTabButton"
           />
         </TabList>
         <TabPanel value="grid">

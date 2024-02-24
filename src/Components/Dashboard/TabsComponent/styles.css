@@ -4,14 +4,13 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* margin: 1rem */
 }
 
 .listCoins__table{
-    width: 95%;
-    display: block;
+    width: 96%;
     margin-inline: auto;
 }
+
 
 @media only screen and (max-width: 768px) {
     :root{
@@ -20,5 +19,9 @@
 
     .grid__container{
         gap: 1.5rem;
+    }
+
+    .myTabButton{
+        font-size: 0.8rem !important;
     }
 }
