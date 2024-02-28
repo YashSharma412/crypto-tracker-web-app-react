@@ -2,11 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 :root {
   --white: #fff;
+  /* --black: red; */
   --black: #111;
   --black-light: rgba(27, 27, 27, 0.9);
   --grey: rgba(204, 204, 204, 0.8);
   --grey-dark: rgba(154, 154, 154, 1);
-  --grey-darker: rgba(108, 108, 108, 0.25);
+  --grey-darker: rgba(108, 108, 108, 0.12);
   --green: rgba(11, 233, 104, 1);
   --red: rgba(255, 69, 0, 1);
   --transition-fast: all 0.3s ease;
@@ -14,12 +15,12 @@
 
   /* My vars */
   --purple: rgba(130, 95, 233, 1);
-  --purple-light: rgba(178, 155, 239, 0.8);
+  --purple-light: rgba(178, 155, 239, 0.6);
   --purple-lighter: rgba(178, 155, 239, 0.2);
   --turquoise: rgba(81, 163, 195, 1);
   --turquoise-light: rgba(115, 198, 205, 1);
   --siren: rgba(127, 206, 148, 1);
-  --siren-light: rgba(168, 255, 192, 1);
+  --siren-light: rgba(168, 255, 192, 0.7);
   --pink-light: rgba(255, 175, 215, 1);
   --blue-dark: rgba(44, 120, 183, 1);
   /* my fonts */
@@ -30,6 +31,10 @@
   --fs-large: 1.4rem;
   --fs-medium: 1.2rem;
   --fs-small: 0.95rem;
+  /*  */
+  --box-shadow-purple: 
+    var(--purple-lighter) 0px 18px 70px -18px inset,
+    var(--purple-lighter) 0px 9px 40px -18px inset;
   /* color-scheme: light dark; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -40,9 +45,10 @@
 * {
   margin: 0;
   padding: 0;
+}
+html {
   scroll-behavior: smooth;
 }
-
 body {
   padding: 0;
   margin: 0;
@@ -91,7 +97,6 @@ img {
 /* Track */
 ::-webkit-scrollbar-track {
   background: var(--purple-lighter);
-  /* margin-block: 0.4rem; */
 }
 
 /* Handle */
@@ -104,5 +109,30 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--purple);
-  /* box-shadow: 5px 5px 8px 1px var(--purple-light); */
 }
+
+.list__wrapper{
+  padding: 0.5rem;
+  margin:0 1.5rem 0.5rem 1.5rem;
+  /* background-color: var(--grey-darker); */
+  /* box-shadow: var(--box-shadow-purple); */
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+.info__wrapper{
+  padding: 1rem;
+  margin:0 1.5rem 1rem 1.5rem;
+  background-color: var(--grey-darker); 
+  box-shadow: var(--box-shadow-purple);
+  border-radius: 1rem;
+}
+
+.chart__options{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+/* @media only screen and (max-width: 768px){ */

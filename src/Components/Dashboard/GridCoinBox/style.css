@@ -13,13 +13,12 @@
     border-radius: 1.5rem;
     padding: 2rem;
     box-sizing: border-box;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
-    box-shadow: var(--purple-lighter) 0px 18px 70px -18px inset, var(--purple-lighter) 0px 9px 40px -18px inset;
+    box-shadow: var(--box-shadow-purple);
 }
 
 .gridCoin__box:hover{
-    background: var(--purple-lighter);
-    transform: scale(1.01);
+    background: var(--purple-lighter) ;
+    transform: scale(1.02) !important;
 }
 
 .gridCoin__box.positive:hover{

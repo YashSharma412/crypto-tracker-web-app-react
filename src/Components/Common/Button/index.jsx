@@ -1,11 +1,15 @@
 import React from "react";
 import "./style.css";
-const Button = ({ text, onClick, outlined }) => {
+const Button = ({ text, onClick, outlined ,className, children, id }) => {
   return (
-    <button className={outlined?"btn outlined":"btn"} onClick={() => onClick()}>
+    <button id={id} className={`${outlined ? "btn outlined" : "btn"}${className ? ` ${className}` : ""}`} onClick={() => onClick()}>
+      {children}
       {text}
     </button>
   );
 };
 
 export default Button;
+
+// <button className={outlined?"btn outlined":"btn" + (myClass ?` ${myClass}`:"")} onClick={() => onClick()}>
+ 

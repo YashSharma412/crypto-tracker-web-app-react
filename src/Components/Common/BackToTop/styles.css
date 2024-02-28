@@ -1,0 +1,13 @@
+.backToTop-btn{
+    position: fixed;
+    z-index: 1000;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem 0.5rem !important;
+    min-width: 3rem !important;
+    aspect-ratio: 1/1;
+}
+
+.backToTop-btn:hover{
+    transform: scale(1.2);
+}

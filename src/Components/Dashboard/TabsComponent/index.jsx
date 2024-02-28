@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -9,9 +9,13 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import GridCoinBox from "../GridCoinBox";
 import ListCoinRow from "../ListCoinRow";
 import "./styles.css"
-export default function TabsComponent({coins}) {
+import { AnimatePresence } from "framer-motion";
+import Loader from "../../Common/Loader";
+export default function TabsComponent({loading , coins}) {
   const [value, setValue] = useState("grid");
-
+  useEffect(()=>{
+    console.log("Coins in tabs", coins)
+  },[coins])
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -63,23 +67,40 @@ export default function TabsComponent({coins}) {
           />
         </TabList>
         <TabPanel value="grid">
-          <div className="grid__container">
-            {/* Grid view render here */}
             {
-              coins.map((coin, idx)=>(
-                <GridCoinBox coin={coin} coinId={coin.id} key={idx}/>
-              ))
+              loading ? <Loader /> : 
+                <div className="grid__container">
+                  {
+                    coins && coins.length > 0 ? 
+                      <AnimatePresence>
+                        {
+                          coins.map((coin, idx)=>(
+                            <GridCoinBox coin={coin} coinId={coin.id} idx={idx} key={idx}/>
+                          ))
+                        }
+                      </AnimatePresence> : <center><h2> No coin matches the search </h2></center>
+                  }
+                </div>
             }
-          </div>
         </TabPanel>
         <TabPanel value="list">
-          <table className="listCoins__table">
-            {
-              coins.map((coin, idx)=>(
-                <ListCoinRow key={idx} coin={coin} coinId={coin.id} />
-              ))
-            }
-          </table>
+          {
+            loading ? <Loader /> : 
+              <table className="listCoins__table">
+                {
+                  coins && coins.length > 0 ? 
+                    <tbody>
+                      <AnimatePresence>
+                        {
+                          coins.map((coin, idx)=>(
+                            <ListCoinRow key={idx} coin={coin} idx={idx} coinId={coin.id} />
+                            ))
+                          }
+                      </AnimatePresence>
+                    </tbody> : <center><h2> No coin matches the search </h2></center>
+                }
+              </table>
+          }
         </TabPanel>
       </TabContext>
     </ThemeProvider>

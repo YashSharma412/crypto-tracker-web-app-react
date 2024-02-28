@@ -1,7 +1,11 @@
 export default function PrettifyNumber(num){
     const numWithCommas = num.toLocaleString();
     var myArr = numWithCommas.split(",");
-    if(myArr.length == 5){
+    if (myArr.length == 6) {
+        //Quadrillion
+        return myArr[0] + "." + myArr[1].slice(0,2) + "Qa";
+    }
+    else if(myArr.length == 5){
         //  Trillions
         return myArr[0] + "." + myArr[1].slice(0,2) + "T";
     } else if(myArr.length == 4){
