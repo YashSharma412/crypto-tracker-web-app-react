@@ -4,7 +4,7 @@ import "./styles.css"
 const Loader = () => {
   return (
     <div className='loader__cont'>
-        <CircularProgress />
+        <CircularProgress style={{color: "var(--purple)"}}/>
     </div>
   )
 }

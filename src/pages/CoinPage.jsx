@@ -80,16 +80,15 @@ const CoinPage = () => {
 
   useEffect(() => {
     if(chartType){
-      // setChartLoading(true);
       rerenderChart(chartType);
     }
   }, [chartType]);
 
-  useEffect(()=>{
-    if (chartResponse) {
-      console.log("market chart data response: ", chartResponse);
-    }
-  }, [chartResponse])
+  // useEffect(()=>{
+  //   if (chartResponse) {
+  //     console.log("market chart data response: ", chartResponse);
+  //   }
+  // }, [chartResponse])
 
   async function getCoinPageData() {
     try {
@@ -125,14 +124,14 @@ const CoinPage = () => {
               <section className="list__wrapper">
                 <ListCoinRow coin={coinData} idx={1} coinId={id} />
               </section>
-              <section className="info__wrapper" style={{ minHeight: "15dvh" }}>
+              <section className="info__wrapper" style={{ minHeight: "30dvh" }}>
                 <SelectDays daysCount={days} handleChange={handleDaysChange} />
                 <ChartTypeToggle
                   chartType={chartType}
                   handleChartTypeChange={handleChartTypeChange}
                 />
                 {chartData && !chartLoading ? (
-                  <LineChart chartData={chartData} />
+                  <LineChart chartData={chartData} chartType={chartType} />
                 ) : (
                   <Loader />
                 )}

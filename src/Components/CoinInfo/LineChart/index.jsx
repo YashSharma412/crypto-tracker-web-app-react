@@ -1,8 +1,9 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS} from "chart.js/auto"; // needed for chart, Dont get rid of it
+import PrettifyNumber from '../../../functions/PrettifyNumber';
 
-const LineChart = ({ chartData, priceType, multiAxis }) => {
+const LineChart = ({ chartData, chartType = "prices", multiAxis }) => {
     const options = {
         plugins: {
             legend: {
@@ -14,17 +15,18 @@ const LineChart = ({ chartData, priceType, multiAxis }) => {
             mode: "index",
             intersect: false,
         },
-        maintainAspectRatio: true, // Adjust aspect ratio based on container
+        maintainAspectRatio: true, // Adjust aspect ratio based on container     
         scales: {
             y: {
-                beginAtZero: true // Ensure that the y-axis starts at zero
-                // Add other yAxes configuration options here if needed
-              }
-            // yAxes: [{
-            //     ticks: {
-            //         beginAtZero: true
-            //     }
-            // }]
+                beginAtZero: false, // Ensure that the y-axis starts at zero
+                ticks: {
+                    // Include a dollar sign in the ticks
+                    callback: function(value, index, ticks) {
+                        if(chartType == "prices") return '$ ' + value.toLocaleString();
+                        else return PrettifyNumber(value);
+                    }
+                }
+            }
         }
     };
 
