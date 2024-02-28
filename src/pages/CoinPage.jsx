@@ -72,6 +72,7 @@ const CoinPage = () => {
       setChartLoading(false);
     } catch (error) {
       console.error("Error occurred while rendering the chart:", error);
+      setChartLoading(false);
       // Additional error handling logic can be added here, such as displaying an error message to the user
     }
   }
@@ -79,7 +80,7 @@ const CoinPage = () => {
 
   useEffect(() => {
     if(chartType){
-      setChartLoading(true);
+      // setChartLoading(true);
       rerenderChart(chartType);
     }
   }, [chartType]);
