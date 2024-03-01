@@ -4,7 +4,7 @@ import Header from '../Components/Common/Header'
 const WatchlistPage = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       Watchlist Page
     </div>
   )

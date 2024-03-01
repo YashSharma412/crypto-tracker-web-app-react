@@ -1,6 +1,7 @@
 import axios from "axios";
 
 async function getCoinMarketChartData(id, days) {
+  console.log("~~~~~~~~~~~~~~~~~~ Coin Market Chart Data Api ~~~~~~~~~~~~~~~~~~~~~")
   try {
     if (!id) {
       throw new Error("Invalid coin id passed to getCoinMarketChartData");
@@ -16,7 +17,7 @@ async function getCoinMarketChartData(id, days) {
         },
       }
     );
-    // console.log("market Chart response: ", response.data);
+    console.log("market Chart response for " + id + " for " + days + " : ", response.data);
     return response.data;
   } catch (err) {
     console.error("Error fetching market chart data:", err.message);

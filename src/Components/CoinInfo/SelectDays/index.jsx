@@ -1,35 +1,58 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function SelectDays({daysCount, handleChange}) {
+export default function SelectDays({ daysCount, handleChange, comparePage }) {
+  // useEffect(()=>{
+  //   console.log("current days count: " + daysCount)
+  // }, [daysCount])
+  const formControlStyles = {
+    m: 1,
+    minWidth: 80,
+    borderRadius: "5px",
+    fontSize: comparePage ? "1rem":"0.8rem",
+    backgroundColor: "rgba(178, 155, 239, 0.5)",
+    "&:hover": {
+      "&& fieldset": {
+        borderColor: "var(--purple)",
+      },
+    },
+  }
 
-  const etst = {
-    marginBottom: "0.5rem",
-  };
+  const inputLabelStyles = {
+    color: "var(--white)",
+    fontSize: comparePage ? "1rem":"0.8rem",
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "var(--purple) !important",
+    },
+  }
+
+  const selectStyles = {
+    height: comparePage ? "unset":"2.2rem",
+    fontSize: comparePage ? "1rem" : "0.8rem",
+    "& .MuiSelect-icon": {
+      color: "var(--white)", // Change the color of the dropdown icon
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+      {
+        borderColor: "var(--white)", // Change the border color when focused
+      },
+    "& .MuiSelect-select.MuiSelect-select": {
+      color: "var(--white)", // Change the color of the selected text
+    },
+  }
   return (
-    <div sx={{ minWidth: 80 }} style={etst}>
+    <div sx={{ minWidth: 80 }}>
       <FormControl
         variant="filled"
         size="small"
-        sx={{
-          m: 1,
-          minWidth: 80,
-          borderRadius: "5px",
-          fontSize: "0.8rem",
-          backgroundColor: "rgba(178, 155, 239, 0.5)",
-          "&:hover": {
-            "&& fieldset": {
-              borderColor: "var(--purple)",
-            },
-          },
-        }}
+        sx={formControlStyles}
       >
         <InputLabel
           id="demo-simple-select-label"
-          sx={{ color: "var(--white)", fontSize: "0.8rem", }}
+          sx={inputLabelStyles}
         >
           Days
         </InputLabel>
@@ -39,20 +62,7 @@ export default function SelectDays({daysCount, handleChange}) {
           value={daysCount}
           label="Days"
           onChange={handleChange}
-          sx={{
-            height: "2.2rem",
-            fontSize: "0.8rem",
-            "& .MuiSelect-icon": {
-              color: "var(--white)", // Change the color of the dropdown icon
-            },
-            "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-              {
-                borderColor: "var(--white)", // Change the border color when focused
-              },
-            "& .MuiSelect-select.MuiSelect-select": {
-              color: "var(--white)", // Change the color of the selected text
-            },
-          }}
+          sx={selectStyles}
         >
           <MenuItem value={7}>1 Week</MenuItem>
           <MenuItem value={30}>1 Month</MenuItem>

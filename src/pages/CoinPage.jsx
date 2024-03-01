@@ -1,29 +1,31 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {motion} from "framer-motion";
+// Components
 import Header from "../Components/Common/Header";
 import Loader from "../Components/Common/Loader";
-import testCoinDetails from "../assets/testCoinDetails";
-import ShortenCoinDetailsData from "../functions/ShortenCoinDetailsData";
 import ListCoinRow from "../Components/Dashboard/ListCoinRow";
 import CoinDescription from "../Components/CoinInfo/CoinDecription";
-import getCoinDetails from "../functions/getCoinDetails";
-import getCoinMarketChartData from "../functions/getCoinMarketChartData";
 import LineChart from "../Components/CoinInfo/LineChart";
 import SelectDays from "../Components/CoinInfo/SelectDays";
-import settingCoinChartData from "../functions/settingCoinChartData";
 import ChartTypeToggle from "../Components/CoinInfo/ChartTypeToggle";
+// functions
+import ShortenCoinDetailsData from "../functions/ShortenCoinDetailsData";
+import getCoinDetails from "../functions/getCoinDetails";
+import getCoinMarketChartData from "../functions/getCoinMarketChartData";
+import settingCoinChartData from "../functions/settingCoinChartData";
+// import testCoinDetails from "../assets/testCoinDetails";
+
 const CoinPage = () => {
   const { id } = useParams();
-  const [coinData, setCoinData] = useState(null);
-  // const [coinData, setCoinData] = useState(()=>testCoinDetails);
   const [loading, setLoading] = useState(true);
   const [chartLoading, setChartLoading] = useState(false);
-  const [chartData, setChartData] = useState(null);
+// 
+  const [coinData, setCoinData] = useState(null);
   const [days, setDays] = useState(30);
+  const [chartData, setChartData] = useState(null);
   const [chartResponse, setChartResponse] = useState(null);
   const [chartType, setChartType] = useState("prices");
-
   useEffect(() => {
     if (id) {
       setTimeout(() => {
@@ -32,9 +34,9 @@ const CoinPage = () => {
     }
   }, [id]);
 
-  useEffect(() => {
-    if (coinData) console.log("usable coin data ", coinData);
-  }, [coinData]);
+  // useEffect(() => {
+  //   if (coinData) console.log("usable coin data ", coinData);
+  // }, [coinData]);
 
   const handleDaysChange = async (event) => {
     setChartLoading(true);
@@ -49,34 +51,19 @@ const CoinPage = () => {
         marketChartDataResponse.prices &&
         marketChartDataResponse.prices.length > 0
       ) {
-        settingCoinChartData(setChartData, marketChartDataResponse.prices);
+        settingCoinChartData(setChartData, marketChartDataResponse.prices, id);
         setChartLoading(false);
       }
     } catch (e) {
-      console.error("Error occurred while fetching data for new days:", error);
+      console.error("Error occurred while fetching data for new days:", e);
       setChartLoading(false);
     }
   };
 
+  // ! handling Chart Axis-type change /~~~~~~~~~~~~~~
   const handleChartTypeChange = async (event, newType) => {
-    setChartType(newType);
+    if(newType !== null) setChartType(newType);
   };
-
-  async function rerenderChart(chartType) {
-    try {
-      if (!chartResponse) {
-        console.log("Chart data is not available");
-        return;
-      }
-      await settingCoinChartData(setChartData, chartResponse[chartType]);
-      setChartLoading(false);
-    } catch (error) {
-      console.error("Error occurred while rendering the chart:", error);
-      setChartLoading(false);
-      // Additional error handling logic can be added here, such as displaying an error message to the user
-    }
-  }
-
 
   useEffect(() => {
     if(chartType){
@@ -84,25 +71,35 @@ const CoinPage = () => {
     }
   }, [chartType]);
 
-  // useEffect(()=>{
-  //   if (chartResponse) {
-  //     console.log("market chart data response: ", chartResponse);
-  //   }
-  // }, [chartResponse])
+  async function rerenderChart(chartType) {
+    try {
+      if (!chartResponse) {
+        console.log("Chart data is not available");
+        return;
+      }
+      await settingCoinChartData(setChartData, chartResponse[chartType], id);
+      // setChartLoading(false);
+    } catch (error) {
+      console.error("Error occurred while rendering the chart:", error);
+      // setChartLoading(false);
+      // Additional error handling logic can be added here, such as displaying an error message to the user
+    }
+  }
+
+// !  /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
   async function getCoinPageData() {
     try {
       const coinDataFetched = await getCoinDetails(id); // async fetch data function
       if (coinDataFetched) {
-        console.log("coin page details obj:", coinDataFetched);
+        // console.log("coin page details obj:", coinDataFetched);
         ShortenCoinDetailsData(coinDataFetched, setCoinData);
-
         const marketChartDataResponse = await getCoinMarketChartData(id, days); // async fetch data function
         if (marketChartDataResponse) {
           // console.log("market chart data response: ", marketChartDataResponse);
           setChartResponse(marketChartDataResponse);
-          const pricesData = marketChartDataResponse.prices;
-          await settingCoinChartData(setChartData, pricesData); // helper function to set chart data
+          await settingCoinChartData(setChartData, marketChartDataResponse[chartType], id); // helper function to set chart data
         }
       }
     } catch (error) {
@@ -114,7 +111,7 @@ const CoinPage = () => {
   }
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {loading ? (
         <Loader />
       ) : (
@@ -124,18 +121,27 @@ const CoinPage = () => {
               <section className="list__wrapper">
                 <ListCoinRow coin={coinData} idx={1} coinId={id} />
               </section>
-              <section className="info__wrapper" style={{ minHeight: "30dvh" }}>
-                <SelectDays daysCount={days} handleChange={handleDaysChange} />
-                <ChartTypeToggle
-                  chartType={chartType}
-                  handleChartTypeChange={handleChartTypeChange}
-                />
+              <motion.section 
+                className="info__wrapper" 
+                style={{ minHeight: "30dvh" }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5, delay: 2 * 0.2 }}
+              >
+                <div className="chart__options">
+                  <SelectDays daysCount={days} handleChange={handleDaysChange} />
+                  <ChartTypeToggle
+                    chartType={chartType}
+                    handleChartTypeChange={handleChartTypeChange}
+                  />
+                </div>
                 {chartData && !chartLoading ? (
-                  <LineChart chartData={chartData} chartType={chartType} />
+                  <LineChart chartData={chartData} chartType={chartType} multiAxis={false}/>
                 ) : (
                   <Loader />
                 )}
-              </section>
+              </motion.section>
               <CoinDescription
                 heading={coinData.name}
                 description={coinData.desc}

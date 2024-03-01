@@ -18,7 +18,7 @@
   --purple-light: rgba(178, 155, 239, 0.6);
   --purple-lighter: rgba(178, 155, 239, 0.2);
   --turquoise: rgba(81, 163, 195, 1);
-  --turquoise-light: rgba(115, 198, 205, 1);
+  --turquoise-light: rgba(115, 198, 205, 0.7);
   --siren: rgba(127, 206, 148, 1);
   --siren-light: rgba(168, 255, 192, 0.7);
   --pink-light: rgba(255, 175, 215, 1);
@@ -112,7 +112,6 @@ img {
 }
 
 .list__wrapper{
-  padding: 0.5rem;
   margin:0 1.5rem 0.5rem 1.5rem;
   /* background-color: var(--grey-darker); */
   /* box-shadow: var(--box-shadow-purple); */
@@ -132,7 +131,29 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1rem;
+  padding: 0.25rem 1rem 0.25rem 0.5rem;
 }
 
-/* @media only screen and (max-width: 768px){ */
+.chart__options.compare{
+  justify-content: center;
+  align-items: center;
+  /* padding: 0.25rem 1rem 0.25rem 0.5rem; */
+}
+
+.css-1sid6pb-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: var(--pink-light) !important;
+}
+.css-lzltwq-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root::after {
+  border-bottom: 2px solid var(--pink-light) !important;
+}
+
+
+@media only screen and (max-width: 512px){
+  .list__wrapper, .info__wrapper{
+    margin:0 1rem 0.5rem 1rem;
+  }
+
+  .info__wrapper{
+    padding: 0.5rem;
+  }
+}

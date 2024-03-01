@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import {motion} from "framer-motion";
 import "./styles.css";
 
 const CoinDescription = ({ heading, description }) => {
@@ -31,7 +32,13 @@ const CoinDescription = ({ heading, description }) => {
 
 
   return (
-    <div className="info__wrapper">
+    <motion.div 
+      className="info__wrapper"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5, delay: 3 * 0.2 }}
+    >
       <h2 className="info__heading">{heading}</h2>
       {
         !description && <p>No description provided. Sorry for the inconvinence</p>
@@ -51,7 +58,7 @@ const CoinDescription = ({ heading, description }) => {
           dangerouslySetInnerHTML={{ __html: description }}
         ></p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

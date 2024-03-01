@@ -13,9 +13,9 @@ import { AnimatePresence } from "framer-motion";
 import Loader from "../../Common/Loader";
 export default function TabsComponent({loading , coins}) {
   const [value, setValue] = useState("grid");
-  useEffect(()=>{
-    console.log("Coins in tabs", coins)
-  },[coins])
+  // useEffect(()=>{
+  //   console.log("Coins in tabs", coins)
+  // },[coins])
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
