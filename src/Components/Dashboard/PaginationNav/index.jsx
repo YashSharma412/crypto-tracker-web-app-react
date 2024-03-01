@@ -31,7 +31,6 @@ export default function PaginationNav({page, handlePageChange}) {
           "& .MuiPaginationItem-root ":{
             color: "var(--white)!important",
             border: "1px solid var(--grey)"
-            
           }
         }}
       />

@@ -50,7 +50,6 @@ const SelectCoins = ({cryptoId1, cryptoId2, handleCoinSelect}) => {
   };
 
   const selectStyles = {
-    // height: "2.2rem",
     fontSize: "1rem",
     "& .MuiSelect-icon": {
       color: "var(--white)", // Change the color of the dropdown icon

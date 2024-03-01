@@ -1,4 +1,4 @@
-.ListCoin__row{
+.ListCoin__row {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -11,23 +11,24 @@
     margin: 0.5rem auto;
 }
 
-.ListCoin__row:hover{
+.ListCoin__row:hover {
     background: var(--purple-lighter);
     transform: scale(1.02) !important;
 
 }
-.ListCoin__row>td{
+
+.ListCoin__row>td {
     flex: 1 1;
 
 }
 
-.ListCoin__row>td:first-child{
+.ListCoin__row>td:first-child {
     max-width: 60px;
     min-width: 50px;
 }
 
 
-.listCoin__img_div{
+.listCoin__img_div {
     max-width: 60px;
     min-width: 25px;
     aspect-ratio: 1/1;
@@ -38,24 +39,24 @@
 }
 
 
-.listCoin__img_div:hover{
+.listCoin__img_div:hover {
     transform: scale(1.07);
     box-shadow: var(--purple-light) 0 0 20px 5px;
 }
 
-.listCoin__img_div>img{
+.listCoin__img_div>img {
     width: 100%;
     display: block;
     object-fit: cover;
     object-position: center center;
 }
 
-.listCoin__name{
+.listCoin__name {
     max-width: 11%;
     min-width: 30px !important;
 }
 
-.listCoin__name>h1{
+.listCoin__name>h1 {
     color: var(--white);
     text-transform: uppercase;
     font-weight: 600;
@@ -63,7 +64,7 @@
     font-family: var(--font-heading);
 }
 
-.listCoin__name>h3{
+.listCoin__name>h3 {
     color: var(--grey);
     text-transform: capitalize;
     font-weight: 500;
@@ -77,7 +78,7 @@
     -webkit-line-clamp: 1;
 }
 
-.listCoin__pills{
+.listCoin__pills {
     flex: 1 1;
     display: flex;
     justify-content: flex-start;
@@ -88,27 +89,28 @@
     min-width: 45px;
 }
 
-.listCoin__price_cont{
+.listCoin__price_cont {
     text-align: center;
     min-width: 110px;
     max-width: 170px;
 }
-.listCoin__price{
+
+.listCoin__price {
     font-size: 1.6rem;
     font-weight: 600;
 }
 
 
-.listCoin__price.positive{
+.listCoin__price.positive {
     color: var(--green);
 }
 
-.listCoin__price.negative{
+.listCoin__price.negative {
     color: var(--red);
 }
 
 
-.listCoin__stats{
+.listCoin__stats {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -116,7 +118,7 @@
     min-width: 70px;
 }
 
-.listCoin__stats p{
+.listCoin__stats p {
     color: var(--grey);
     font-weight: 500;
     font-size: 1.2rem;
@@ -124,157 +126,175 @@
     line-height: 1.4;
 }
 
-.listCoin__stats p>span{
+.listCoin__stats p>span {
     color: var(--grey);
     font-weight: 700;
 }
 
-.stats-mob, .stats-pc-pretty, .stats-mob-pretty{
+.stats-mob,
+.stats-pc-pretty,
+.stats-mob-pretty {
     display: none;
 }
 
-@media only screen and (max-width: 1280px){
-    .listCoin__price_cont{
-         max-width: 140px;
+@media only screen and (max-width: 1280px) {
+    .listCoin__price_cont {
+        max-width: 140px;
     }
 
-    .stats-pc{
+    .stats-pc {
         display: none;
     }
-    .stats-mob{
+
+    .stats-mob {
         display: block;
     }
 
 }
 
-@media only screen and (max-width: 1010px){
-    .listCoin__stats p{
+@media only screen and (max-width: 1010px) {
+    .listCoin__stats p {
         font-size: 1rem;
     }
-    .listCoin__pills{
+
+    .listCoin__pills {
         max-width: 170px;
     }
-    .stats-mob{
+
+    .stats-mob {
         display: none;
     }
-    .stats-pc-pretty{
+
+    .stats-pc-pretty {
         display: block;
     }
 }
 
 
-@media only screen and (max-width: 865px){
-    
-    .ListCoin__row>td{
+@media only screen and (max-width: 865px) {
+
+    .ListCoin__row>td {
         flex: auto;
     }
-    .ListCoin__row{
+
+    .ListCoin__row {
         gap: 0.6rem;
     }
-    .listCoin__pills{
+
+    .listCoin__pills {
         gap: 0.5rem;
     }
-    .listCoin__name>h1{
+
+    .listCoin__name>h1 {
         font-size: 1rem;
     }
 
-    .listCoin__name>h3{
+    .listCoin__name>h3 {
         font-size: 0.8rem;
     }
-    
-    .ListCoin__row>td:first-child{
+
+    .ListCoin__row>td:first-child {
         max-width: 42px !important;
     }
-    .ListCoin__row .ChangePercent__pill{
+
+    .ListCoin__row .ChangePercent__pill {
         font-size: 0.8rem;
         min-width: 60px;
         min-height: 30px;
     }
-    .ListCoin__row .trendingIcon{
+
+    .ListCoin__row .trendingIcon {
         min-width: 30px !important;
     }
 
-    .listCoin__price{
+    .listCoin__price {
         font-size: 1.2rem;
         font-weight: 500;
     }
 
-    .listCoin__stats p{
+    .listCoin__stats p {
         font-size: 0.9rem;
     }
 
-    .listCoin__price_cont{
+    .listCoin__price_cont {
         min-width: 40px;
         max-width: 900px;
     }
 
-} 
+}
 
-@media only screen and (max-width: 756px){
-    .listCoin__stats{
+@media only screen and (max-width: 756px) {
+    .listCoin__stats {
         flex-direction: column;
         gap: 0;
     }
 
 
-    .ListCoin__row{
+    .ListCoin__row {
         padding: 0.25rem;
         margin: 0.5rem 0;
         gap: 0.4rem;
     }
 }
 
-@media only screen and (max-width: 576px){
-    .listCoin__img_div{
+@media only screen and (max-width: 576px) {
+    .listCoin__img_div {
         max-width: 30px;
-        
+
     }
-    .listCoin__price_cont{
+
+    .listCoin__price_cont {
         text-align: left;
     }
-    .ListCoin__row .trendingIcon{
+
+    .ListCoin__row .trendingIcon {
         display: none !important;
     }
-    .ListCoin__row>td:first-child{
-        min-width: 30px!important;
+
+    .ListCoin__row>td:first-child {
+        min-width: 30px !important;
     }
-    .listCoin__name{
+
+    .listCoin__name {
         max-width: 35px;
     }
-    .listCoin__name>h1{
+
+    .listCoin__name>h1 {
         font-size: 0.8rem;
     }
-    .listCoin__name>h3{
+
+    .listCoin__name>h3 {
         font-size: 0.7rem;
     }
-    
-    .listCoin__price{
+
+    .listCoin__price {
         font-size: 0.85rem;
         font-weight: 500;
         max-width: 80px;
         text-wrap: nowrap;
     }
-    .listCoin__stats{
+
+    .listCoin__stats {
         max-width: 90px;
     }
-    .stats-pc-pretty{
+
+    .stats-pc-pretty {
         display: none;
     }
 
-    .stats-mob-pretty{
+    .stats-mob-pretty {
         display: block;
         font-size: 0.8rem;
     }
-    
-    .listCoin__pills{
+
+    .listCoin__pills {
         max-width: 70px !important;
         justify-content: center;
     }
 
-    .listCoin__pills .ChangePercent__pill{
+    .listCoin__pills .ChangePercent__pill {
         font-size: 0.7rem;
         min-width: 55px;
         min-height: 25px;
     }
 }
-

@@ -1,4 +1,4 @@
-.gridCoin__box{
+.gridCoin__box {
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
@@ -16,27 +16,27 @@
     box-shadow: var(--box-shadow-purple);
 }
 
-.gridCoin__box:hover{
-    background: var(--purple-lighter) ;
+.gridCoin__box:hover {
+    background: var(--purple-lighter);
     transform: scale(1.02) !important;
 }
 
-.gridCoin__box.positive:hover{
+.gridCoin__box.positive:hover {
     outline: 1px solid var(--green);
 }
 
-.gridCoin__box.negative:hover{
+.gridCoin__box.negative:hover {
     outline: 1px solid var(--red);
 }
-.gridCoin__header{
+
+.gridCoin__header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    /* margin-bottom: 1rem; */
 }
 
-.gridCoin__img{
+.gridCoin__img {
     flex: 2;
     min-width: 50px;
     aspect-ratio: 1/1;
@@ -46,31 +46,31 @@
     transition: var(--transition-fast);
 }
 
-.gridCoin__img:hover{
+.gridCoin__img:hover {
     transform: scale(1.07);
     box-shadow: var(--purple-light) 0 0 20px 5px;
 }
 
-.gridCoin__img>img{
+.gridCoin__img>img {
     width: 100%;
     display: block;
     object-fit: cover;
     object-position: center center;
 }
 
-.gridCoin__name{
+.gridCoin__name {
     flex: 6;
 }
 
-.gridCoin__name>h1{
+.gridCoin__name>h1 {
     color: var(--white);
     text-transform: uppercase;
     font-weight: 500;
     font-size: var(--fs-large);
     font-family: var(--font-heading);
- }
+}
 
-.gridCoin__name>h3{
+.gridCoin__name>h3 {
     color: var(--grey);
     text-transform: capitalize;
     font-weight: 500;
@@ -84,7 +84,7 @@
     -webkit-line-clamp: 1;
 }
 
-.gridCoin__pills{
+.gridCoin__pills {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -92,8 +92,7 @@
     margin-block: 1.5rem;
 }
 
-.ChangePercent__pill{
-    /* padding: 0.53rem 1rem; */
+.ChangePercent__pill {
     border-radius: 2rem;
     font-weight: 700;
     font-family: var(--font-heading);
@@ -107,85 +106,79 @@
     letter-spacing: 1px;
 }
 
-.trendingIcon{
-    /* padding: 0.404rem 0; */
+.trendingIcon {
     min-width: 40px;
     aspect-ratio: 1/1;
 }
 
-.ChangePercent__pill.positive{
+.ChangePercent__pill.positive {
     border: 2px solid var(--green);
     color: var(--green)
 }
 
-.ChangePercent__pill.positive:hover{
+.ChangePercent__pill.positive:hover {
     background: var(--green);
     color: var(--white);
 }
 
-.ChangePercent__pill.negative{
+.ChangePercent__pill.negative {
     border: 2px solid var(--red);
     color: var(--red)
 }
 
-.ChangePercent__pill.negative:hover{
+.ChangePercent__pill.negative:hover {
     background: var(--red);
     color: var(--white);
 }
 
-.gridCoin__stats{
-    /* margin-top: 1.5rem; */
+.gridCoin__stats {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
 }
 
-.gridCoin__price{
+.gridCoin__price {
     font-size: var(--fs-large);
     font-weight: 600;
 }
 
-.gridCoin__price.positive{
+.gridCoin__price.positive {
     color: var(--green);
 }
 
-.gridCoin__price.negative{
+.gridCoin__price.negative {
     color: var(--red);
 }
 
-.gridCoin__stats>p{
+.gridCoin__stats>p {
     color: var(--grey);
     font-weight: 600;
     font-size: var(--fs-small);
-    /* letter-spacing: 0.4px; */
 }
-@media only screen and (max-width: 768px){
 
-    .gridCoin__name>h1{
+@media only screen and (max-width: 768px) {
+
+    .gridCoin__name>h1 {
         font-size: large;
     }
 
-    .gridCoin__name>h3{
+    .gridCoin__name>h3 {
         font-size: medium;
     }
 
-    .gridCoin__name{
+    .gridCoin__name {
         flex: 8;
     }
-    
+
 }
 
 
-@media only screen and (max-width: 512px){
-    .gridCoin__box{
+@media only screen and (max-width: 512px) {
+    .gridCoin__box {
         padding: 1.5rem 2.5rem;
         aspect-ratio: 5/4;
         max-width: 360px;
         width: 100%;
     }
-    
-
-
-
 }

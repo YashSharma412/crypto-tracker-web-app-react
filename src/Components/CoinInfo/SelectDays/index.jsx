@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 export default function SelectDays({ daysCount, handleChange, comparePage }) {
-  // useEffect(()=>{
-  //   console.log("current days count: " + daysCount)
-  // }, [daysCount])
+  
   const formControlStyles = {
     m: 1,
     minWidth: 80,

@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../Common/Button";
+import { motion } from "framer-motion";
 import "./styles.css";
 import iphone from "../../../assets/Images/phone1.png";
 import iphone2 from "../../../assets/Images/phone2.png";
 import imgGradient from "../../../assets/Images/Amin.png";
+import Button from "../../Common/Button";
 
-// importing framer motion
-import { motion } from "framer-motion";
 const MainComponent = () => {
   const navigate = useNavigate();
   const [phoneToggle, setPhoneToggle] = useState(true);
+
+// ! Phonr toggle animation
   useEffect(()=>{
     let interval = setInterval(() => {
-      // console.log("flag")
       setPhoneToggle(phoneToggle => !phoneToggle)
     }, 3000);
     return(()=>{
-      // console.log("unmounted interval")
       clearInterval(interval);
     })
   }, [])
+  
   return (
     <section className="hero__section flex-div">
       <header className="hero__desc">

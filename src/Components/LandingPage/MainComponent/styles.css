@@ -1,46 +1,47 @@
-.flex-div{
+.flex-div {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
 }
-.hero__section{
+
+.hero__section {
     padding: 4rem 2rem;
     padding-bottom: 2rem;
     justify-content: space-between;
     align-items: flex-start !important;
 }
 
-.hero__heading{
+.hero__heading {
     font-size: 7rem;
     transition: var(--transition-fast);
 }
-.hero__heading.track{
-    color: var(--white); 
+
+.hero__heading.track {
+    color: var(--white);
 }
 
-.hero__heading.track:hover{
+.hero__heading.track:hover {
     color: var(--black);
-    -webkit-text-stroke-width: 2px ;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--white);
 }
 
-.hero__heading.real_time{
+.hero__heading.real_time {
     color: var(--purple);
 }
 
-.hero__text{
+.hero__text {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--grey);
 }
 
-.btns{
+.btns {
     margin: 1.5rem 0 0 0;
 }
 
-.hero__img_div{
-    /* outline: 1px solid red; */
+.hero__img_div {
     position: relative;
     margin-top: 1rem;
     padding: 0 1rem;
@@ -49,7 +50,8 @@
     aspect-ratio: 4/7;
 }
 
-.iphone-img, .gradient-img{
+.iphone-img,
+.gradient-img {
     display: inline-block;
     position: absolute;
     width: 17dvw;
@@ -59,7 +61,7 @@
 
 }
 
-.iphone-img{
+.iphone-img {
     top: 50%;
     left: 50%;
     transform: translate(-55%, -52%);
@@ -67,7 +69,7 @@
     aspect-ratio: 4/7.8;
 }
 
-.gradient-img{
+.gradient-img {
     z-index: 1;
     border-radius: 30px;
     aspect-ratio: 4/7;
@@ -76,21 +78,24 @@
     transform: translate(-40%, -43%);
 }
 
-@media only screen and (max-width: 964px){
-    .hero__heading{
+@media only screen and (max-width: 964px) {
+    .hero__heading {
         font-size: 4rem;
         transition: var(--transition-fast);
     }
-    .hero__text{
+
+    .hero__text {
         font-size: 1.2rem;
         font-weight: 500;
         color: var(--grey);
     }
-    .hero__section{
+
+    .hero__section {
         flex-direction: column;
         align-items: center;
     }
-    .hero__img_div{
+
+    .hero__img_div {
         margin: 0 auto;
         margin-top: 2.5rem;
         width: 90%;
@@ -99,17 +104,20 @@
 
 @media only screen and (max-width: 645px) {
 
-    .hero__heading{
+    .hero__heading {
         font-size: 3.5rem;
     }
-    .hero__text{
+
+    .hero__text {
         font-size: 1rem;
     }
-    
-    .iphone-img, .gradient-img{
+
+    .iphone-img,
+    .gradient-img {
         width: 65%;
     }
-    .btns.flex-div{
+
+    .btns.flex-div {
         margin-top: 2rem;
         justify-content: center;
         gap: 2rem;

@@ -4,90 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto"; // needed for chart, Dont get 
 import PrettifyNumber from "../../../functions/PrettifyNumber";
 
 const LineChart = ({ chartData, chartType, multiAxis }) => {
-  // const options = {
-  //   plugins: {
-  //     legend: {
-  //       display: multiAxis ? true : false,
-  //     },
-  //   },
-  //   responsive: true,
-  //   interaction: {
-  //     mode: "index",
-  //     intersect: false,
-  //   },
-  //   maintainAspectRatio: true, // Adjust aspect ratio based on container
-  //   scales: {
-  //     y1: {
-  //       display: true,
-  //       type: "linear",
-  //       position: "right",
-  //       title: {
-  //         display: true,
-  //         text:
-  //           (chartType == "prices" && "Price") ||
-  //           (chartType == "market_caps" && "Market Cap") ||
-  //           (chartType == "total_volumes" && "Total Volume") ||
-  //           (chartType == null && "Price"),
-  //         color: "rgba(130, 95, 233, 1)",
-  //         font: {
-  //           family: "Sans-Serif",
-  //           size: 16,
-  //           weight: "bold",
-  //         },
-  //         padding: { top: 0, left: 0, right: 0, bottom: 0 },
-  //       },
-  //       beginAtZero: false, // Ensure that the y-axis starts at zero
-  //       ticks: {
-  //         // Include a dollar sign in the ticks
-  //         callback: function (value, index, ticks) {
-  //           if (chartType == "prices") return "$ " + value.toLocaleString();
-  //           else return PrettifyNumber(value);
-  //         },
-  //       },
-  //     },
-  //     crypto_2: multiAxis && {
-  //       display: multiAxis,
-  //       type: "linear",
-  //       position: "left",
-  //       title: {
-  //         display: true,
-  //         text:
-  //           (chartType == "prices" && "Price") ||
-  //           (chartType == "market_caps" && "Market Cap") ||
-  //           (chartType == "total_volumes" && "Total Volume") ||
-  //           (chartType == null && "Price"),
-  //         color: "rgba(130, 95, 233, 1)",
-  //         font: {
-  //           family: "Sans-Serif",
-  //           size: 16,
-  //           weight: "bold",
-  //         },
-  //         padding: { top: 0, left: 0, right: 0, bottom: 0 },
-  //       },
-  //       ticks: {
-  //         // Include a dollar sign in the ticks
-  //         callback: function (value, index, ticks) {
-  //           if (chartType == "prices") return "$ " + value.toLocaleString();
-  //           else return PrettifyNumber(value);
-  //         },
-  //       },
-  //     },
-  //     x: {
-  //       display: true,
-  //       title: {
-  //         display: true,
-  //         text: "Date",
-  //         color: "rgba(130, 95, 233, 1)",
-  //         font: {
-  //           family: "Sans-Serif",
-  //           size: 16,
-  //           weight: "bold",
-  //         },
-  //         padding: { top: 0, left: 0, right: 0, bottom: 0 },
-  //       },
-  //     },
-  //   },
-  // };
+  
   const OptionsTwoCharts = {
     plugins: {
       legend: {
@@ -99,7 +16,7 @@ const LineChart = ({ chartData, chartType, multiAxis }) => {
       mode: "index",
       intersect: false,
     },
-    maintainAspectRatio: true, // Adjust aspect ratio based on container
+    // maintainAspectRatio: true, // Adjust aspect ratio based on container
     scales: {
       x: {
         display: true,
@@ -165,7 +82,7 @@ const LineChart = ({ chartData, chartType, multiAxis }) => {
       mode: "index",
       intersect: false,
     },
-    maintainAspectRatio: true, // Adjust aspect ratio based on container
+    // maintainAspectRatio: true, // Adjust aspect ratio based on container
     scales: {
       x: {
         display: true,
@@ -208,7 +125,7 @@ const LineChart = ({ chartData, chartType, multiAxis }) => {
       },
     },
   };
-  return <Line data={chartData} options={multiAxis ? OptionsTwoCharts : myOptions} />;
+  return <Line data={chartData} options={multiAxis ? OptionsTwoCharts : myOptions} style={{paddingRight: "1.1rem"}} />;
 };
 
 export default LineChart;

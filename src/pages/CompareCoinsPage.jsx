@@ -18,7 +18,7 @@ import getCoinMarketChartData from "../functions/getCoinMarketChartData";
 const CompareCoinsPage = () => {
   const [loading, setLoading] = useState(true);
   const [chartLoading, setChartLoading] = useState(false);
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState(90);
   const [chartType, setChartType] = useState("prices");
   const [chartData, setChartData] = useState(null);
   //
@@ -61,14 +61,14 @@ const CompareCoinsPage = () => {
     }
   }
 
-  useEffect(()=>{
-    if (chartData) {
-      console.log("chartData", chartData);
-    }
-  }, [chartData])
+  // useEffect(()=>{
+  //   if (chartData) {
+  //     console.log("chartData", chartData);
+  //   }
+  // }, [chartData])
 
-  // !   Component change functions
-  // ! 1.) handle coin selection
+//!   Component change functions
+//! 1.) handle coin selection
   
   async function handleCoinSelect(event, coin2) {
     if (coin2) {
@@ -110,8 +110,7 @@ const CompareCoinsPage = () => {
       if (!chartResponse)
         throw new Error("Failed to fetch chart data for: " + newId);
       setCoinChartData(chartResponse);
-      console.log("New coin details for: " + newId + " : ", coinData);
-      console.log("New chart response for: " + newId + " : ", chartResponse);
+
       if (secondCoinUpdated) {
         if(!chartDataCoin1) throw new Error("my error")
         settingCoinChartData(
@@ -132,7 +131,7 @@ const CompareCoinsPage = () => {
         );
       }
     } catch (err) {
-      console.log(err, "i was here");
+      console.error(err);
       console.error("Error fetching updated details for : " + newId);
     } finally {
       setLoading(false);
@@ -165,7 +164,7 @@ const CompareCoinsPage = () => {
         );
       }
     } catch (e){
-      console.log(e)
+      console.error(e)
       console.error("Error fetching updated chart data for new days: " + event.target.value);
     } finally {
       setChartLoading(false);
@@ -177,7 +176,6 @@ const CompareCoinsPage = () => {
   // ! 3.) handle Chart Axis-type Change
   async function handleChartTypeChange(event, newType) {
     if (newType !== null) setChartType(newType);
-    // rerenderChart(newType);
     settingCoinChartData(
       setChartData,
       chartDataCoin1[newType],

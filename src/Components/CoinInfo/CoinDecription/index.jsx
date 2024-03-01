@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import "./styles.css";
 
 const CoinDescription = ({ heading, description }) => {
-  const para = useRef(null)
+  const para = useRef(null);
   const shortDesc =
     description.split(" ").slice(0, 40).join(" ") +
     `<span id="read"> read more...</span>`;
@@ -14,7 +14,7 @@ const CoinDescription = ({ heading, description }) => {
     // Add event listener to the parent paragraph element to handle click on dynamically added span
     const handleClick = (event) => {
       if (event.target.id === "read") {
-        event.stopPropagation()
+        event.stopPropagation();
         setDescFull(!descFull);
       }
     };
@@ -30,9 +30,8 @@ const CoinDescription = ({ heading, description }) => {
     };
   }, [descFull]);
 
-
   return (
-    <motion.div 
+    <motion.div
       className="info__wrapper"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,9 +39,9 @@ const CoinDescription = ({ heading, description }) => {
       transition={{ duration: 0.5, delay: 3 * 0.2 }}
     >
       <h2 className="info__heading">{heading}</h2>
-      {
-        !description && <p>No description provided. Sorry for the inconvinence</p>
-      }
+      {!description && (
+        <p>No description provided. Sorry for the inconvinence</p>
+      )}
 
       {description && description.split(" ").length > 40 ? (
         <p

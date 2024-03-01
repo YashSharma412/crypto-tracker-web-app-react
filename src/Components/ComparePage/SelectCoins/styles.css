@@ -4,9 +4,3 @@
     justify-content: flex-start;
     gap: 0.5rem;
 }
-/* 
-@media only screen and (max-width: 512px){
-    .select__coin_container{
-        justify-content: center;
-    }
-} */

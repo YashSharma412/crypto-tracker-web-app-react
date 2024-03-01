@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import "./styles.css";
+import { AnimatePresence } from "framer-motion";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -8,14 +10,10 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { createTheme, ThemeProvider } from "@mui/material";
 import GridCoinBox from "../GridCoinBox";
 import ListCoinRow from "../ListCoinRow";
-import "./styles.css"
-import { AnimatePresence } from "framer-motion";
 import Loader from "../../Common/Loader";
 export default function TabsComponent({loading , coins}) {
   const [value, setValue] = useState("grid");
-  // useEffect(()=>{
-  //   console.log("Coins in tabs", coins)
-  // },[coins])
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -40,10 +38,8 @@ export default function TabsComponent({loading , coins}) {
     },
   });
   return (
-    // sx={{ width: '100%', typography: 'body1' }}
     <ThemeProvider theme={Theme}>
       <TabContext selectionFollowsFocus value={value}>
-        {/* sx={{ borderBottom: 1, borderColor: 'divider' }} */}
         <TabList
           onChange={handleChange}
           aria-label="crypto display type"

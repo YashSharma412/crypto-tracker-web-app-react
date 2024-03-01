@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Components/Common/Header";
 import TabsComponent from "../Components/Dashboard/TabsComponent";
-import axios from "axios";
 import Search from "../Components/Dashboard/Search";
 import PaginationNav from "../Components/Dashboard/PaginationNav";
 import BackToTop from "../Components/Common/BackToTop";
@@ -13,17 +11,15 @@ const DashBoardPage = () => {
   const [page, setPage] = React.useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [filteredCoins, setFilteredCoins] = useState([]);
-  // useEffect(()=>{
-  //   setPaginatedCoins(testCoins.slice(0,12))
-  // }, [])
-  
+
+  // ! 1.) Handle Pagination
   const handlePageChange = (event, value) => {
     setPage(value);
     var initialCount = (value - 1) * 12;
     setPaginatedCoins(coins.slice(initialCount, initialCount + 12));
   };
 
+  //! 2.) Handle Search
   var filteredCoins = coins.filter(
     (myCoin) =>
       myCoin.name.toLowerCase().includes(searchQuery.toLowerCase().trim()) ||
@@ -34,6 +30,7 @@ const DashBoardPage = () => {
     setSearchQuery(e.target.value);
   };
 
+  //! 3.) Handle Page load 
   const getCoinsFromApi = async function () {
     try {
       const myCoins = await get120Coins();
@@ -52,38 +49,13 @@ const DashBoardPage = () => {
   };
 
   useEffect(() => {
-    // setLoading(true)
     setTimeout(()=>{
       getCoinsFromApi();
     }, 700)
   }, []);
 
-  // useEffect(() => {
-  //   if (searchQuery.trim() === "") {
-  //     setFilteredCoins(coins);
-  //   } else {
-  //     setFilteredCoins(
-  //       coins.filter((coin) =>
-  //         coin.name.toLowerCase().includes(searchQuery.toLowerCase().trim())
-  //       )
-  //     );
-  //   }
-  // }, [searchQuery]);
-
-  // useEffect(()=>{
-  //   console.log("filteredCoins: ", filteredCoins)
-  // }, [filteredCoins])
-
-  // // ! Printing the coins state
-  // useEffect(() => {
-  //   if (coins.length > 0) {
-  //     console.log(coins);
-  //   }
-  // }, [coins]);
-
   return (
     <div>
-      {/* <Header /> */}
       <BackToTop />
       <div style={{ paddingBottom: "0.5rem" }}></div>
       <section className="dashBoard__main" style={{position: "relative"}}>

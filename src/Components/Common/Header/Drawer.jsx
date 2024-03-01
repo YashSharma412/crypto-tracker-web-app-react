@@ -19,7 +19,6 @@ export default function TemporaryDrawer() {
           sx: {
             width: "45vw",
             backgroundColor: "transparent",
-            // minWidth: "220px"
           },
         }}
       >
