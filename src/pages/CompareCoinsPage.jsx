@@ -69,43 +69,122 @@ const CompareCoinsPage = () => {
 
   // !   Component change functions
   // ! 1.) handle coin selection
+  
   async function handleCoinSelect(event, coin2) {
     if (coin2) {
+      //  coin 2 is to be updated
       setLoading(true);
       setCryptoId2(event.target.value);
-      //   getCoinData(event.target.value, setCryptoTwoData, setMarket2Data);
+      updateCoinData(
+        event.target.value,
+        setCrypto2Data,
+        setChartDataCoin2,
+        true
+      );
     } else {
+      //  coin 1 is to be updated
       setLoading(true);
       setCrptoId1(event.target.value);
-      //   getCoinData(event.target.value, setCryptoOneData, setMarket1Data);
+      updateCoinData(
+        event.target.value,
+        setCrypto1Data,
+        setChartDataCoin1,
+        false
+      );
     }
   }
 
+  async function updateCoinData(
+    newId,
+    setCoinFn,
+    setCoinChartData,
+    secondCoinUpdated
+  ) {
+    try {
+      const coinData = await getCoinDetails(newId);
+      if (!coinData)
+        throw new Error("Failed to fetch coin details for: " + newId);
+      ShortenCoinDetailsData(coinData, setCoinFn);
+
+      const chartResponse = await getCoinMarketChartData(newId, days); // got timed out
+      if (!chartResponse)
+        throw new Error("Failed to fetch chart data for: " + newId);
+      setCoinChartData(chartResponse);
+      console.log("New coin details for: " + newId + " : ", coinData);
+      console.log("New chart response for: " + newId + " : ", chartResponse);
+      if (secondCoinUpdated) {
+        if(!chartDataCoin1) throw new Error("my error")
+        settingCoinChartData(
+          setChartData,
+          chartDataCoin1[chartType],
+          cryptoId1,
+          chartResponse[chartType],
+          newId
+        );
+      } else {
+        if(!chartDataCoin2) throw new Error("my error")
+        settingCoinChartData(
+          setChartData,
+          chartResponse[chartType],
+          newId,
+          chartDataCoin2[chartType],
+          cryptoId2
+        );
+      }
+    } catch (err) {
+      console.log(err, "i was here");
+      console.error("Error fetching updated details for : " + newId);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // ! 2.) handle data for days change
+
   async function handleDaysChange(event) {
     setDays(event.target.value);
+    setChartLoading(true)
+    try {
+      const dataChart1 = await getCoinMarketChartData(
+        cryptoId1,
+        event.target.value
+      );
+      const dataChart2 = await getCoinMarketChartData(
+        cryptoId2,
+        event.target.value
+      );
+      if (dataChart1 && dataChart2) {
+        setChartDataCoin1(dataChart1);
+        setChartDataCoin2(dataChart2);
+        settingCoinChartData(
+          setChartData,
+          dataChart1[chartType],
+          cryptoId1,
+          dataChart2[chartType],
+          cryptoId2
+        );
+      }
+    } catch (e){
+      console.log(e)
+      console.error("Error fetching updated chart data for new days: " + event.target.value);
+    } finally {
+      setChartLoading(false);
+    }
+    
   }
 
   // ~~~~~~~~~~~~~~~~
   // ! 3.) handle Chart Axis-type Change
   async function handleChartTypeChange(event, newType) {
-    if(newType!== null) setChartType(newType);
+    if (newType !== null) setChartType(newType);
     // rerenderChart(newType);
-
-  }
-
-  async function rerenderChart(chartType) {
-    try {
-      if (!chartResponse) {
-        console.log("Chart data is not available");
-        return;
-      }
-      await settingCoinChartData(setChartData, chartResponse[chartType], id);
-      // setChartLoading(false);
-    } catch (error) {
-      console.error("Error occurred while rendering the chart:", error);
-      // setChartLoading(false);
-      // Additional error handling logic can be added here, such as displaying an error message to the user
-    }
+    settingCoinChartData(
+      setChartData,
+      chartDataCoin1[newType],
+      cryptoId1,
+      chartDataCoin2[newType],
+      cryptoId2
+    );
   }
 
   // ! returns
@@ -156,8 +235,8 @@ const CompareCoinsPage = () => {
                   />
                 </div>
                 {
-                  (!chartData && chartLoading) ? <Loader /> : 
-                  <LineChart chartData={chartData} chartType={"prices"} multiAxis={true}/>
+                  !chartData || chartLoading ? <Loader /> : 
+                  <LineChart chartData={chartData} chartType={chartType} multiAxis={true}/>
                 }
               </motion.section>
               <CoinDescription

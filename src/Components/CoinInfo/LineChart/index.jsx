@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto"; // needed for chart, Dont get rid of it
 import PrettifyNumber from "../../../functions/PrettifyNumber";
 
-const LineChart = ({ chartData, chartType = "prices", multiAxis }) => {
+const LineChart = ({ chartData, chartType, multiAxis }) => {
   // const options = {
   //   plugins: {
   //     legend: {

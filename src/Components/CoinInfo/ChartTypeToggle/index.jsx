@@ -3,9 +3,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import "./styles.css";
 export default function ChartTypeToggle({ chartType, handleChartTypeChange}) {
-  useEffect(()=>{
-    console.log("current chart type is: " + chartType)
-  }, [chartType])
+
   return ( //className="toggle__container"
     <div > 
       <ToggleButtonGroup

@@ -17,7 +17,8 @@ async function getCoinMarketChartData(id, days) {
         },
       }
     );
-    console.log("market Chart response for " + id + " for " + days + " : ", response.data);
+    if(!response) throw new Error("failed to get Chart data for coin " + id);
+    // console.log("market Chart response for " + id + " for " + days + " : ", response.data);
     return response.data;
   } catch (err) {
     console.error("Error fetching market chart data:", err.message);
