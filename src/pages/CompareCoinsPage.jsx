@@ -190,7 +190,7 @@ const CompareCoinsPage = () => {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    margin: "0.75rem 1rem 1.5rem 1rem",
+    margin: "1.5rem 1rem 0rem 1rem",
   };
   return (
     <div>

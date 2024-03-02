@@ -1,0 +1,302 @@
+
+/* /////////////// */
+.ListCoin__row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow-purple);
+    box-sizing: border-box;
+    margin: 0.7rem auto;
+}
+
+.ListCoin__row:hover {
+    background: var(--purple-lighter);
+    transform: scale(1.02) !important;
+}
+
+.ListCoin__row>td {
+    flex: 1 1;
+    outline: 1px solid lightgrey;
+    outline-offset: -3px;
+}
+
+.ListCoin__row>td:first-child {
+    max-width: 60px;
+    min-width: 50px;
+}
+
+
+.listCoin__img_div {
+    max-width: 60px;
+    min-width: 25px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+
+.listCoin__img_div:hover {
+    transform: scale(1.07);
+    box-shadow: var(--purple-light) 0 0 20px 5px;
+}
+
+.listCoin__img_div>img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.listCoin__name {
+    max-width: 11%;
+    min-width: 30px !important;
+}
+
+.listCoin__name>h1 {
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+}
+
+.listCoin__name>h3 {
+    color: var(--grey);
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 1.2rem;
+    font-family: var(--font-article);
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.listCoin__pills {
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    max-width: 200px;
+    min-width: 45px;
+}
+
+.listCoin__price_cont {
+    text-align: center;
+    min-width: 110px;
+    max-width: 170px;
+}
+
+.listCoin__price {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+
+.listCoin__price.positive {
+    color: var(--green);
+}
+
+.listCoin__price.negative {
+    color: var(--red);
+}
+
+
+.listCoin__stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.8rem;
+    min-width: 70px;
+}
+
+.listCoin__stats p {
+    color: var(--grey);
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-wrap: nowrap;
+    line-height: 1.4;
+}
+
+.listCoin__stats p>span {
+    color: var(--grey);
+    font-weight: 700;
+}
+
+.stats-mob,
+.stats-pc-pretty,
+.stats-mob-pretty {
+    display: none;
+}
+
+@media only screen and (max-width: 1280px) {
+    .listCoin__price_cont {
+        max-width: 140px;
+    }
+
+    .stats-pc {
+        display: none;
+    }
+
+    .stats-mob {
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 1010px) {
+    .listCoin__stats p {
+        font-size: 1rem;
+    }
+
+    .listCoin__pills {
+        max-width: 170px;
+    }
+
+    .stats-mob {
+        display: none;
+    }
+
+    .stats-pc-pretty {
+        display: block;
+    }
+}
+
+
+@media only screen and (max-width: 865px) {
+
+    .ListCoin__row>td {
+        flex: auto;
+    }
+
+    .ListCoin__row {
+        gap: 0.6rem;
+    }
+
+    .listCoin__pills {
+        gap: 0.5rem;
+    }
+
+    .listCoin__name>h1 {
+        font-size: 1rem;
+    }
+
+    .listCoin__name>h3 {
+        font-size: 0.8rem;
+    }
+
+    .ListCoin__row>td:first-child {
+        max-width: 42px !important;
+    }
+
+    .ListCoin__row .ChangePercent__pill {
+        font-size: 0.8rem;
+        min-width: 60px;
+        min-height: 30px;
+    }
+
+    .ListCoin__row .trendingIcon {
+        min-width: 30px !important;
+    }
+
+    .listCoin__price {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .listCoin__stats p {
+        font-size: 0.9rem;
+    }
+
+    .listCoin__price_cont {
+        min-width: 40px;
+        max-width: 900px;
+    }
+
+}
+
+@media only screen and (max-width: 756px) {
+    .listCoin__stats {
+        flex-direction: column;
+        gap: 0;
+    }
+
+
+    .ListCoin__row {
+        padding: 0.25rem;
+        margin: 0.5rem 0;
+        gap: 0.4rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .listCoin__img_div {
+        max-width: 30px;
+
+    }
+
+    .listCoin__price_cont {
+        text-align: left;
+    }
+
+    .ListCoin__row .trendingIcon {
+        display: none !important;
+    }
+
+    .ListCoin__row>td:first-child {
+        min-width: 30px !important;
+    }
+
+    .listCoin__name {
+        max-width: 35px;
+    }
+
+    .listCoin__name>h1 {
+        font-size: 0.8rem;
+    }
+
+    .listCoin__name>h3 {
+        font-size: 0.7rem;
+    }
+
+    .listCoin__price {
+        font-size: 0.85rem;
+        font-weight: 500;
+        max-width: 80px;
+        text-wrap: nowrap;
+    }
+
+    .listCoin__stats {
+        max-width: 90px;
+    }
+
+    .stats-pc-pretty {
+        display: none;
+    }
+
+    .stats-mob-pretty {
+        display: block;
+        font-size: 0.8rem;
+    }
+
+    .listCoin__pills {
+        max-width: 70px !important;
+        justify-content: center;
+    }
+
+    .listCoin__pills .ChangePercent__pill {
+        font-size: 0.7rem;
+        min-width: 55px;
+        min-height: 25px;
+    }
+}

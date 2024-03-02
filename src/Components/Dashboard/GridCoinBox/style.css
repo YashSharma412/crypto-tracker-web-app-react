@@ -1,19 +1,25 @@
 .gridCoin__box {
     aspect-ratio: 1/1;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 300px;
     background: var(--grey-darker);
-    /* background: var(--purple-lighter); */
     box-shadow: 0 4px 30px var(--black);
     backdrop-filter: saturate(180%) blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--black-light);
     border-radius: 1.5rem;
-    padding: 2rem;
-    box-sizing: border-box;
     box-shadow: var(--box-shadow-purple);
+    position: relative !important;
+    padding: 2rem;
+    max-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wish__pill.gridView{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
 }
 
 .gridCoin__box:hover {

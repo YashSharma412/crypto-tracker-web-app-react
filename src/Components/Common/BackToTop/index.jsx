@@ -5,7 +5,7 @@ import "./styles.css";
 import { Tooltip } from "@mui/material";
 
 const BackToTop = () => {
-  let mybutton = document.querySelector(".backtoTop-btn");
+  let mybutton = document.getElementById("backtoTop-btn");
   window.onscroll = function () {
     scrollFunction();
   };

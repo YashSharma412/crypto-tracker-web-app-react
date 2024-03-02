@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 :root {
   --white: #fff;
   /* --black: red; */
@@ -32,7 +33,7 @@
   --fs-medium: 1.2rem;
   --fs-small: 0.95rem;
   /*  */
-  --box-shadow-purple: 
+  --box-shadow-purple:
     var(--purple-lighter) 0px 18px 70px -18px inset,
     var(--purple-lighter) 0px 9px 40px -18px inset;
   /* color-scheme: light dark; */
@@ -46,9 +47,11 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -74,6 +77,7 @@ h1 {
   font-weight: 700;
   margin: 0;
 }
+
 /* Custome selection css */
 ::selection {
   background-color: var(--pink-light);
@@ -87,6 +91,7 @@ img {
   -moz-user-drag: none;
   -o-user-drag: none;
 }
+
 /* ! Scrollbar css */
 
 /* width */
@@ -111,30 +116,30 @@ img {
   background: var(--purple);
 }
 
-.list__wrapper{
-  margin:0 1.5rem 0.5rem 1.5rem;
+.list__wrapper {
+  margin: 0 1.5rem 0.5rem 1.5rem;
   /* background-color: var(--grey-darker); */
   /* box-shadow: var(--box-shadow-purple); */
   box-sizing: border-box;
   border-radius: 1rem;
 }
 
-.info__wrapper{
+.info__wrapper {
   padding: 1rem;
-  margin:0 1.5rem 1rem 1.5rem;
-  background-color: var(--grey-darker); 
+  margin: 0 1.5rem 1rem 1.5rem;
+  background-color: var(--grey-darker);
   box-shadow: var(--box-shadow-purple);
   border-radius: 1rem;
 }
 
-.chart__options{
+.chart__options {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.25rem 1rem 0.25rem 0.5rem;
 }
 
-.chart__options.compare{
+.chart__options.compare {
   justify-content: center;
   align-items: center;
   /* padding: 0.25rem 1rem 0.25rem 0.5rem; */
@@ -143,17 +148,20 @@ img {
 .css-1sid6pb-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
   color: var(--pink-light) !important;
 }
+
 .css-lzltwq-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root::after {
   border-bottom: 2px solid var(--pink-light) !important;
 }
 
 
-@media only screen and (max-width: 512px){
-  .list__wrapper, .info__wrapper{
-    margin:0 1rem 0.5rem 1rem;
+@media only screen and (max-width: 512px) {
+
+  .list__wrapper,
+  .info__wrapper {
+    margin: 0 1rem 0.5rem 1rem;
   }
 
-  .info__wrapper{
+  .info__wrapper {
     padding: 0.5rem;
   }
 }

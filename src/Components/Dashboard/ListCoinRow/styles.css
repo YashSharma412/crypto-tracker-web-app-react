@@ -1,36 +1,60 @@
 .ListCoin__row {
+    flex-direction: row;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 1rem;
-    width: 98%;
-    padding: 1rem;
-    border-radius: 1rem;
+    justify-content: space-around;
+    width: 100%;
+    border-radius: 1.5rem;
     box-shadow: var(--box-shadow-purple);
     box-sizing: border-box;
-    margin: 0.5rem auto;
+    gap: 1.5rem;
+    padding: 1.2rem 1.4rem;
+    margin: 1.2rem 0;
+    z-index: 10;
 }
 
 .ListCoin__row:hover {
     background: var(--purple-lighter);
-    transform: scale(1.02) !important;
-
-}
-
-.ListCoin__row>td {
-    flex: 1 1;
-
-}
-
-.ListCoin__row>td:first-child {
-    max-width: 60px;
-    min-width: 50px;
+    transform: scale(1.015) !important;
 }
 
 
-.listCoin__img_div {
-    max-width: 60px;
-    min-width: 25px;
+.logo-col {
+    flex-shrink: 5;
+}
+.name-col {
+    flex: 0.6 2;
+}
+.pills-col {
+    flex: 1 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+.price-col {
+    flex: 1 4;
+    text-wrap: nowrap;
+    text-align: center;
+}
+.stats-col {
+    flex: 2.5 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.15rem 0.5rem;
+    text-wrap: nowrap;
+}
+.wish-col {
+    flex-shrink: 1 1;
+}
+
+.logo-col>div {
+    height: 70px;
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 50%;
@@ -38,39 +62,74 @@
     transition: var(--transition-fast);
 }
 
-
-.listCoin__img_div:hover {
+.logo-col>div:hover {
     transform: scale(1.07);
     box-shadow: var(--purple-light) 0 0 20px 5px;
 }
 
-.listCoin__img_div>img {
+.logo-col img {
     width: 100%;
     display: block;
     object-fit: cover;
     object-position: center center;
 }
 
-.listCoin__name {
-    max-width: 11%;
-    min-width: 30px !important;
+.pills-col>.percent__box {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: var(--font-heading);
+    border: 2px solid var(--grey);
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.listCoin__name>h1 {
+.pills-col>.percent__box.percent {
+    width: 6rem;
+    aspect-ratio: 2.5/1;
+}
+
+.pills-col>.percent__box.trending {
+    width: 2.4rem;
+    aspect-ratio: 1/1;
+}
+
+.percent__box.positive {
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+.percent__box.positive:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.percent__box.negative {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.percent__box.negative:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+.name-col>h1 {
     color: var(--white);
     text-transform: uppercase;
+    font-size: 1.5rem;
     font-weight: 600;
-    font-size: 1.4rem;
-    font-family: var(--font-heading);
 }
 
-.listCoin__name>h3 {
+.name-col>h3 {
     color: var(--grey);
     text-transform: capitalize;
     font-weight: 500;
-    font-size: 1.2rem;
     font-family: var(--font-article);
-    line-height: 1.2;
+    font-size: 1.3rem;
+    line-height: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -78,223 +137,344 @@
     -webkit-line-clamp: 1;
 }
 
-.listCoin__pills {
-    flex: 1 1;
+.wish__pill {
+    border-radius: 50%;
+    width: 3rem;
+    aspect-ratio: 1/1;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    flex-wrap: nowrap;
-    gap: 1.5rem;
-    max-width: 200px;
-    min-width: 45px;
+    justify-content: center;
+    border: 2px solid var(--grey);
+    z-index: 5;
 }
 
-.listCoin__price_cont {
-    text-align: center;
-    min-width: 110px;
-    max-width: 170px;
+.wish__pill:hover{
+    transform: scale(1.07);
+    box-shadow: var(--purple-light) 0 0 20px 5px;
 }
 
-.listCoin__price {
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-
-.listCoin__price.positive {
+.wish__pill.positive {
+    border: 2px solid var(--green);
     color: var(--green);
 }
 
-.listCoin__price.negative {
+.wish__pill.negative {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.stats-detail.md {
+    display: none;
+}
+
+
+.stats-detail.xs {
+    display: none;
+}
+
+.coin__price{
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: var(--font-heading);
+}
+.coin__price.positive {
+    color: var(--green);
+}
+
+.coin__price.negative {
     color: var(--red);
 }
 
 
-.listCoin__stats {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 0.8rem;
-    min-width: 70px;
-}
-
-.listCoin__stats p {
+.stats-col p {
     color: var(--grey);
-    font-weight: 500;
     font-size: 1.2rem;
     text-wrap: nowrap;
-    line-height: 1.4;
+    line-height: 1;
+    font-weight: 500;
+    font-family: var(--font-article);
 }
 
-.listCoin__stats p>span {
-    color: var(--grey);
-    font-weight: 700;
+.wishIcon{
+    font-size: 1.7rem !important;
+    z-index: 5;
 }
-
-.stats-mob,
-.stats-pc-pretty,
-.stats-mob-pretty {
-    display: none;
-}
-
+/* Large devices (desktops, large laptops) */
 @media only screen and (max-width: 1280px) {
-    .listCoin__price_cont {
-        max-width: 140px;
+    .ListCoin__row{
+        gap: 1rem;
+        padding: 1.2rem 1.2rem;
+        margin: 1.1rem 0;
+    }
+    .pills-col{
+        gap: 1.2rem;
+    }
+    .logo-col>div {
+        height: 60px;
     }
 
-    .stats-pc {
-        display: none;
+    .name-col>h1 {
+        font-size: 1.4rem;
     }
 
-    .stats-mob {
-        display: block;
-    }
-
-}
-
-@media only screen and (max-width: 1010px) {
-    .listCoin__stats p {
-        font-size: 1rem;
-    }
-
-    .listCoin__pills {
-        max-width: 170px;
-    }
-
-    .stats-mob {
-        display: none;
-    }
-
-    .stats-pc-pretty {
-        display: block;
-    }
-}
-
-
-@media only screen and (max-width: 865px) {
-
-    .ListCoin__row>td {
-        flex: auto;
-    }
-
-    .ListCoin__row {
-        gap: 0.6rem;
-    }
-
-    .listCoin__pills {
-        gap: 0.5rem;
-    }
-
-    .listCoin__name>h1 {
-        font-size: 1rem;
-    }
-
-    .listCoin__name>h3 {
-        font-size: 0.8rem;
-    }
-
-    .ListCoin__row>td:first-child {
-        max-width: 42px !important;
-    }
-
-    .ListCoin__row .ChangePercent__pill {
-        font-size: 0.8rem;
-        min-width: 60px;
-        min-height: 30px;
-    }
-
-    .ListCoin__row .trendingIcon {
-        min-width: 30px !important;
-    }
-
-    .listCoin__price {
+    .name-col>h3 {
         font-size: 1.2rem;
-        font-weight: 500;
     }
 
-    .listCoin__stats p {
+    .stats-detail.lg {
+        display: none;
+    }
+
+    .stats-detail.md {
+        display: block
+    }
+    .coin__price{
+        font-size: 1.5rem;
+    }
+    .stats-col p {
+        font-size: 1.1rem;
+    }
+
+    .wishIcon{
+        font-size: 1.5rem !important;
+    }
+
+    .wish-col .wish__pill{
+        width: 2.7rem;
+    }
+    
+}
+
+/* Medium devices (small laptops, tablets in landscape) */
+@media only screen and (max-width: 992px) {
+    /* .ListCoin__row {
+        padding: 1rem 0.8rem;
+        margin: 0.9rem 0;
+        gap: 0.75rem;
+    } */
+    .ListCoin__row{
+        gap: 0.75rem;
+        padding: 1rem 1.1rem;
+        margin: 1rem 0;
+    }
+    .pills-col{
+        gap: 0.75rem;
+    }
+    .logo-col>div {
+        height: 50px;
+    }
+
+    .pills-col>.percent__box {
+        font-size: 1.1rem;
+    }
+
+    .pills-col>.percent__box.percent {
+        width: 5.5rem;
+    }
+
+    .pills-col>.percent__box.trending {
+        width: 2.2rem;
+    }
+
+    .wish-col .wish__pill{
+        width: 2.4rem;
+    }
+
+    .name-col>h1 {
+        font-size: 1.3rem;
+    }
+
+    .name-col>h3 {
+        font-size: 1.1rem;
+    }
+
+    .stats-detail.md {
+        display: none;
+    }
+
+    .stats-detail.xs {
+        display: block;
+    }
+    .coin__price{
+        font-size: 1.4rem;
+    }
+}
+/* Small devices (tablets in portrait, large smartphones) */
+@media only screen and (max-width: 768px) {
+    .ListCoin__row {
+        padding: 0.8rem 0.8rem;
+        gap: 0.5rem;
+        margin: 0.75rem 0;
+    }
+    .logo-col>div {
+        height: 45px;
+    }
+
+    .pills-col>.percent__box {
+        font-size: 0.85rem;
+    }
+    .pills-col>.percent__box.percent {
+        width: 4.5rem;
+    }
+    .pills-col>.percent__box.trending {
+        width: 1.8rem;
+    }
+    .wish-col .wish__pill{
+        width: 2.2rem;
+    }
+    .name-col>h1 {
+        font-size: 1.1rem;
+    }
+    .name-col>h3 {
+        font-size: 0.95rem;
+    }
+    .coin__price{
+        font-size: 1.2rem;
+    }
+    .stats-col {
+        flex: 1 1;
+    }
+    .stats-col p {
         font-size: 0.9rem;
     }
-
-    .listCoin__price_cont {
-        min-width: 40px;
-        max-width: 900px;
-    }
-
 }
 
-@media only screen and (max-width: 756px) {
-    .listCoin__stats {
-        flex-direction: column;
-        gap: 0;
-    }
-
-
-    .ListCoin__row {
-        padding: 0.25rem;
-        margin: 0.5rem 0;
-        gap: 0.4rem;
-    }
-}
-
+/* Extra Small devices (smartphones) */
 @media only screen and (max-width: 576px) {
-    .listCoin__img_div {
-        max-width: 30px;
+    .ListCoin__row {
+        padding: 0.65rem 0.6rem;
+        gap: 0.5rem;
+        margin: 0.7rem 0;
 
     }
 
-    .listCoin__price_cont {
-        text-align: left;
+    .logo-col>div {
+        height: 40px;
+    }
+    
+    .pills-col>.percent__box {
+        font-size: 0.8rem;
     }
 
-    .ListCoin__row .trendingIcon {
+    .pills-col>.percent__box.percent {
+        width: 4.2rem;
+    }
+
+    .pills-col>.percent__box.trending {
         display: none !important;
     }
 
-    .ListCoin__row>td:first-child {
-        min-width: 30px !important;
+    .wish-col .wish__pill {
+        width: 1.8rem;
     }
 
-    .listCoin__name {
-        max-width: 35px;
+    .name-col>h1 {
+        font-size: 1rem;
     }
 
-    .listCoin__name>h1 {
+    .name-col>h3 {
+        font-size: 0.9rem;
+    }
+
+    .stats-col {
+        flex-direction: column;
+    }
+    .coin__price{
+        font-size: 1rem;
+    }
+    .stats-col p {
         font-size: 0.8rem;
     }
+    .wishIcon{
+        font-size: 1.2rem!important;
+    }
+}
 
-    .listCoin__name>h3 {
-        font-size: 0.7rem;
+/* Extra Extra Small devices (small smartphones) */
+@media only screen and (max-width: 498px) {
+    .ListCoin__row {
+        padding: 0.5rem 0.5rem;
+        gap: 0.5rem;
+        margin: 0.6rem 0;
     }
 
-    .listCoin__price {
-        font-size: 0.85rem;
-        font-weight: 500;
-        max-width: 80px;
-        text-wrap: nowrap;
+    .logo-col>div {
+        height: 30px;
     }
 
-    .listCoin__stats {
-        max-width: 90px;
+    .pills-col>.percent__box {
+        font-size: 0.55rem;
     }
 
-    .stats-pc-pretty {
-        display: none;
+    .pills-col{
+        justify-content: flex-end;
+    }
+    .pills-col>.percent__box.percent {
+        width: 3rem;
     }
 
-    .stats-mob-pretty {
-        display: block;
+    .wish-col .wish__pill {
+        width: 1.4rem;
+    }
+
+    .name-col>h1 {
+        font-size: 0.87rem;
+    }
+
+    .name-col>h3 {
+        font-size: 0.77rem;
+    }
+    .coin__price{
         font-size: 0.8rem;
     }
-
-    .listCoin__pills {
-        max-width: 70px !important;
-        justify-content: center;
+    .stats-col p {
+        font-size: 0.65rem;
     }
 
-    .listCoin__pills .ChangePercent__pill {
-        font-size: 0.7rem;
-        min-width: 55px;
-        min-height: 25px;
+    .wishIcon{
+        font-size: 0.9rem !important;
+    }
+}
+
+@media only screen and (max-width: 428px) {
+    .ListCoin__row{
+        padding: 0.35rem 0.35rem;
+        gap: 0.35rem;
+        margin: 0.6rem 0;
+    }
+
+    .logo-col>div {
+        height: 20px;
+    }
+
+    .pills-col>.percent__box {
+        font-size: 0.43rem;
+    }
+    .pills-col{
+        flex: 0 1;
+    }
+    .pills-col>.percent__box.percent {
+        width: 2.5rem;
+    }
+    .wish-col .wish__pill {
+        width: 1.2rem;
+    }
+    .wishIcon{
+        font-size: 0.8rem !important;
+    }
+    .name-col>h1 {
+        font-size: 0.65rem;
+    }
+
+    .name-col>h3 {
+        font-size: 0.55rem;
+    }
+
+    .coin__price{
+        font-size: 0.6rem;
+    }
+
+    .stats-col p {
+        font-size: 0.5rem;
     }
 }
