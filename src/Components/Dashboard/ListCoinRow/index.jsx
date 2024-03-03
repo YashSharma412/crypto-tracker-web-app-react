@@ -6,10 +6,6 @@ import "./styles.css";
 import PrettifyNumber from "../../../functions/PrettifyNumber";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
-import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
-import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
-import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import WatchListButton from "../../Common/WatchListButton";
 const ListCoinRow = ({ coin, coinId, idx }) => {
   const [wished,setWished] = useState(false);
@@ -137,7 +133,7 @@ const ListCoinRow = ({ coin, coinId, idx }) => {
             </p>
           </td>
           <td 
-            className=" wish-col"
+            className="wish-col"
           >
             <WatchListButton coinId={coinId} isPositive={coin.price_change_percentage_24h > 0 ? true : false} isGrid={false}/>
           </td>

@@ -1,52 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import testCoins from '../assets/testCoins'
-import ListCoinRow from '../Components/Dashboard/ListCoinRow'
-import getWatchListCoins from '../functions/getWatchListCoins'
-/*
-.grid__container{
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.listCoins__table{
-    width: 98%;
-    margin-inline: auto;
-}
-
-
-@media only screen and (max-width: 768px) {
-    :root{
-        --fs-medium: 1rem !important
-    }
-
-    .grid__container{
-        gap: 1.5rem;
-    }
-
-    .myTabButton{
-        font-size: 0.8rem !important;
-    }
-}
-
-*/
+import {toast, ToastContainer} from "react-toastify"
+import { getWatchCoins } from '../functions/getWatchCoins';
+import TabsComponent from '../Components/Dashboard/TabsComponent';
 
 const WatchlistPage = () => {
-  const coinIds = ['bitcoin', 'ethereum', 'litecoin']; // Example list of coin IDs
+  const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState([]);
   useEffect(()=>{
-    // getWatchListCoins(coinIds);
+    getWatchPageData();
   },[])
-  const listTable = {
-    width: "98%",
-    marginInline: "auto",
+
+  async function getWatchPageData(){
+    setLoading(true);
+    try {
+      const myCoins = await getWatchCoins();
+      if (myCoins) {
+        setCoins(myCoins);
+      }
+    } catch (e) {
+      console.log("Error in fetching coins list: ", e);
+    } finally {
+      setLoading(false);
+    }
   }
+
   return (
     <div>
-      test
+      <TabsComponent loading={loading} coins={coins}/>
     </div>
   );
 }
 
-export default WatchlistPage
+export default WatchlistPage 

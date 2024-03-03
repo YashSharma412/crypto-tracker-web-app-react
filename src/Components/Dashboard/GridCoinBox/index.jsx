@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
-import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import "./style.css";
 import { Tooltip, Zoom } from "@mui/material";
 import {motion} from "framer-motion"

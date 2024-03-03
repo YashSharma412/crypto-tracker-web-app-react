@@ -148,7 +148,7 @@
     z-index: 5;
 }
 
-.wish__pill:hover{
+ .wish__pill:hover{
     transform: scale(1.07);
     box-shadow: var(--purple-light) 0 0 20px 5px;
 }

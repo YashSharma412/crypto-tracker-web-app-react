@@ -61,11 +61,6 @@ const CompareCoinsPage = () => {
     }
   }
 
-  // useEffect(()=>{
-  //   if (chartData) {
-  //     console.log("chartData", chartData);
-  //   }
-  // }, [chartData])
 
 //!   Component change functions
 //! 1.) handle coin selection
@@ -210,45 +205,47 @@ const CompareCoinsPage = () => {
               comparePage={true}
             />
           </div>
-          {crypto1Data && crypto2Data ? (
-            <>
-              <table className="listCoins__table">
-                <tbody>
-                  <ListCoinRow coin={crypto1Data} idx={1} coinId={cryptoId1} />
-                  <ListCoinRow coin={crypto2Data} idx={2} coinId={cryptoId2} />
-                </tbody>
-              </table>
-              <motion.section 
-                className="info__wrapper" 
-                style={{ minHeight: "30dvh" }} 
-                initial={{ opacity: 0, y: 50 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                exit={{ opacity: 0, y: -50 }} 
-                transition={{ duration: 0.5, delay: 3 * 0.2 }}
-              >
-                <div className="chart__options compare">
-                  <ChartTypeToggle
-                    chartType={chartType}
-                    handleChartTypeChange={handleChartTypeChange}
-                  />
-                </div>
-                {
-                  !chartData || chartLoading ? <Loader /> : 
-                  <LineChart chartData={chartData} chartType={chartType} multiAxis={true}/>
-                }
-              </motion.section>
-              <CoinDescription
-                heading={crypto1Data.name}
-                description={crypto1Data.desc}
-              />
-              <CoinDescription
-                heading={crypto2Data.name}
-                description={crypto2Data.desc}
-              />
-            </>
-          ) : (
-            <Loader />
-          )}
+          <div style={{position: "relative"}}>
+            {crypto1Data && crypto2Data ? (
+              <>
+                <table className="listCoins__table">
+                  <tbody>
+                    <ListCoinRow coin={crypto1Data} idx={1} coinId={cryptoId1} />
+                    <ListCoinRow coin={crypto2Data} idx={2} coinId={cryptoId2} />
+                  </tbody>
+                </table>
+                <motion.section 
+                  className="info__wrapper" 
+                  style={{ minHeight: "30dvh" }} 
+                  initial={{ opacity: 0, y: 50 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  exit={{ opacity: 0, y: -50 }} 
+                  transition={{ duration: 0.5, delay: 3 * 0.2 }}
+                >
+                  <div className="chart__options compare">
+                    <ChartTypeToggle
+                      chartType={chartType}
+                      handleChartTypeChange={handleChartTypeChange}
+                    />
+                  </div>
+                  {
+                    !chartData || chartLoading ? <Loader /> : 
+                    <LineChart chartData={chartData} chartType={chartType} multiAxis={true}/>
+                  }
+                </motion.section>
+                <CoinDescription
+                  heading={crypto1Data.name}
+                  description={crypto1Data.desc}
+                />
+                <CoinDescription
+                  heading={crypto2Data.name}
+                  description={crypto2Data.desc}
+                />
+              </>
+            ) : (
+              <Loader />
+            )}
+          </div>
         </>
       )}
     </div>
