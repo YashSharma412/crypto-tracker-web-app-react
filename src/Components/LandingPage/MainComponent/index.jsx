@@ -6,6 +6,7 @@ import iphone from "../../../assets/Images/phone1.png";
 import iphone2 from "../../../assets/Images/phone2.png";
 import imgGradient from "../../../assets/Images/Amin.png";
 import Button from "../../Common/Button";
+import ShareButton from "../ShareButton";
 
 const MainComponent = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const MainComponent = () => {
           transition={{duration: 0.5, delay: 1}} 
           >
           <Button text={"Dashboard"} onClick={()=>navigate("/dashboard")}/>
-          <Button text={"share"} outlined />
+          <ShareButton />
         </motion.div>
       </header>
       <figure className="hero__img_div">

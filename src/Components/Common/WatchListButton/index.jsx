@@ -38,14 +38,12 @@ const WatchListButton = ({coinId, isPositive, isGrid}) => {
           />
         )}
       </Tooltip>
-      <Tooltip title="Added to your wishlist" TransitionComponent={Zoom} arrow>
         {watch && (
           <BookmarkRoundedIcon
             fontSize={`${isGrid ? "medium" : "small"}`}
             className="wishIcon"
           />
         )}
-      </Tooltip>
     </div>
   );
 };

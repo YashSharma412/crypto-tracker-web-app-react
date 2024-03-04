@@ -8,12 +8,7 @@ import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import WatchListButton from "../../Common/WatchListButton";
 const ListCoinRow = ({ coin, coinId, idx }) => {
-  const [wished,setWished] = useState(false);
-  function handleWish(e){
-    setWished(!wished);
-    console.log("Added to wishlist /---------------------")
-    e.stopPropagation();
-  }
+  
   return (
     <Link to={`/coin/${coinId}`}>
       <>
@@ -33,7 +28,7 @@ const ListCoinRow = ({ coin, coinId, idx }) => {
             <h1>{coin.symbol}</h1>
             <h3>{coin.name}</h3>
           </td>
-          <td className="listCoin__pills pills-col">
+          <td className="pills-col">
             <Tooltip
               title="Percentage change last 24hr"
               arrow

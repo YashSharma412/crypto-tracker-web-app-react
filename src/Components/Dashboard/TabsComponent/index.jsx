@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import GridCoinBox from "../GridCoinBox";
 import ListCoinRow from "../ListCoinRow";
 import Loader from "../../Common/Loader";
-export default function TabsComponent({loading , coins}) {
+export default function TabsComponent({loading , coins, isWatchList}) {
   const [value, setValue] = useState("grid");
   
   const handleChange = (event, newValue) => {
@@ -74,7 +74,12 @@ export default function TabsComponent({loading , coins}) {
                             <GridCoinBox coin={coin} coinId={coin.id} idx={idx} key={idx}/>
                           ))
                         }
-                      </AnimatePresence> : <center><h2> No coin matches the search </h2></center>
+                      </AnimatePresence> : <>
+                        {isWatchList ? 
+                          <center><h2> No coins in the Watch list. </h2></center> : 
+                          <center><h2> No coin matches the search </h2></center>
+                        }
+                      </> 
                   }
                 </div>
             }
@@ -93,7 +98,12 @@ export default function TabsComponent({loading , coins}) {
                             ))
                           }
                       </AnimatePresence>
-                    </tbody> : <center><h2> No coin matches the search </h2></center>
+                    </tbody> : <>
+                        {isWatchList ? 
+                          <center><h2> No coins in the Watch list. </h2></center> : 
+                          <center><h2> No coin matches the search </h2></center>
+                        }
+                      </> 
                 }
               </table>
           }

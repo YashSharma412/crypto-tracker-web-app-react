@@ -27,9 +27,9 @@ const WatchlistPage = () => {
 
   return (
     <div>
-      <TabsComponent loading={loading} coins={coins}/>
+      <TabsComponent loading={loading} coins={coins} isWatchList={true}/>
     </div>
   );
 }
 
-export default WatchlistPage 
+export default WatchlistPage;

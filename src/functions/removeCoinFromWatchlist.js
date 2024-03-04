@@ -9,7 +9,7 @@ export function removeCoinFromWatchlist(coinId) {
             localStorage.setItem("watchList", JSON.stringify(watchlist.filter(id => id != coinId)))
             toast.success(`${coinId.slice(0,1).toUpperCase() + coinId.slice(1)} was removed from watchlist.`)
         } else {
-            alert("No coins present in watch list");
+            toast.error("No coins present in watch list");
         }
     } else {
         toast.error("Cancelled removing coin from watch list")
