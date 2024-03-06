@@ -4,6 +4,7 @@ import TemporaryDrawer from "./Drawer";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
+  
   useEffect(() => {
     console.log("<<<<<--- Header Mounts --->>>>>");
     const interval = setInterval(() => {

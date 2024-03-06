@@ -26,7 +26,7 @@ const WatchlistPage = () => {
   }
 
   return (
-    <div>
+    <div style={{minHeight: "calc(80dvh)"}}>
       <TabsComponent loading={loading} coins={coins} isWatchList={true}/>
     </div>
   );

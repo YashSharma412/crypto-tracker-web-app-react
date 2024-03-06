@@ -56,7 +56,6 @@ const DashBoardPage = () => {
 
   return (
     <div>
-      <BackToTop />
       {/* <ScrollToTop /> */}
       <div style={{ paddingBottom: "0.5rem" }}></div>
       <section className="dashBoard__main" style={{position: "relative"}}>

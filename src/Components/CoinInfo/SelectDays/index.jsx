@@ -14,7 +14,7 @@ export default function SelectDays({ daysCount, handleChange, comparePage }) {
     backgroundColor: "rgba(178, 155, 239, 0.5)",
     "&:hover": {
       "&& fieldset": {
-        borderColor: "var(--purple)",
+        borderColor: "rgba(130, 95, 233, 1)",
       },
     },
   }
@@ -23,22 +23,24 @@ export default function SelectDays({ daysCount, handleChange, comparePage }) {
     color: "var(--white)",
     fontSize: comparePage ? "1rem":"0.8rem",
     "& .MuiInputLabel-root.Mui-focused": {
-      color: "var(--purple) !important",
+      color: "rgba(130, 95, 233, 1) !important",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "rgba(130, 95, 233, 1) !important",
     },
   }
-
   const selectStyles = {
     height: comparePage ? "unset":"2.2rem",
     fontSize: comparePage ? "1rem" : "0.8rem",
     "& .MuiSelect-icon": {
-      color: "var(--white)", // Change the color of the dropdown icon
+      color: "var(--white)",
     },
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
       {
-        borderColor: "var(--white)", // Change the border color when focused
+        borderColor: "var(--white)",
       },
     "& .MuiSelect-select.MuiSelect-select": {
-      color: "var(--white)", // Change the color of the selected text
+      color: "var(--white)", 
     },
   }
   return (

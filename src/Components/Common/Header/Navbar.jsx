@@ -1,11 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 import Button from "../Button";
-const Navbar = () => {
+import ThemeToggle from "../../LandingPage/ThemeToggle";
+const Navbar = ({isMob}) => {
   const navigate = useNavigate()
   return (
     <ul className="navbar__links drawer">
+      <li>
+        <ThemeToggle />
+      </li>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -16,12 +21,12 @@ const Navbar = () => {
         <NavLink to="/compare">Compare</NavLink>
       </li>
       <li>
-        {/* <NavLink> */}
+        { isMob ? <NavLink to={"/dashboard"}>Dashboard</NavLink> :
           <Button
             text={"Dashboard"}
             onClick={() => navigate("/dashboard")}
           />
-        {/* </NavLink> */}
+        }
       </li>
     </ul>
   );

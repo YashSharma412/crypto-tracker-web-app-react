@@ -7,7 +7,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 2rem;
-  background-color: var(--black);
+  background-color: var(--black-light);
+  backdrop-filter: saturate(180%) blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .navbar__links {
@@ -62,15 +64,16 @@
     /* From https://css.glass */
     background: transparent;
     box-shadow: 0 4px 30px var(--black);
-    backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(240%) blur(12px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--black-light);
   }
 
   .navbar__links.drawer > li {
     width: 70%;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.25rem 0 0rem 3rem;
+    font-family: var(--font-heading);
   }
 }

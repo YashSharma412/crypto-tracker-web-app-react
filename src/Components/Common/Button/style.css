@@ -15,7 +15,7 @@
 }
 
 .btn.outlined {
-  background-color: var(--black);
+  background-color: var(--black-light);
   border: 2px solid var(--purple);
 }
 

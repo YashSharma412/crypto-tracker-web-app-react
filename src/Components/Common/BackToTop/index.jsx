@@ -1,39 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button";
 import NavigationRoundedIcon from "@mui/icons-material/NavigationRounded";
-import "./styles.css";
 import { Tooltip } from "@mui/material";
+import "./styles.css";
 
 const BackToTop = () => {
-  var mybutton = document.querySelector("#backtoTop-btn");
-  window.onscroll = function () {
-    scrollFunction();
-  };
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 250 ||
-      document.documentElement.scrollTop > 250
-    ) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
+  const [isVisible, setIsVisible] = useState(false);
 
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 250) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
-    <Button
-      outlined
-      className={"backToTop-btn"}
-      id={"backtoTop-btn"}
-      onClick={topFunction}
-    >
-      <Tooltip placement="top" title={"scroll to the top!"} arrow>
+    <Button className={`backToTop-btn ${isVisible ? "visible" : ""}`} onClick={scrollToTop}>
+      <Tooltip placement="top" title="Scroll to the top!" arrow>
         <NavigationRoundedIcon />
       </Tooltip>
     </Button>

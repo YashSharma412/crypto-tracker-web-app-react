@@ -1,4 +1,48 @@
 #root {
-  max-width: 1480px;
+  max-width: 1660px;
+  /* height: 100dvh; */
   margin: auto;
+}
+body{
+  height: 100dvh;
+}
+/* .App{
+  height: 100dvh;
+} */
+.list__wrapper {
+  margin: 0 1.5rem 0.5rem 1.5rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+.info__wrapper {
+  padding: 1rem;
+  margin: 0 1.5rem 1rem 1.5rem;
+  background-color: var(--grey-darker);
+  box-shadow: var(--box-shadow-purple);
+  border-radius: 1rem;
+}
+
+.chart__options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem 0.25rem 0.5rem;
+}
+
+.chart__options.compare {
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 512px) {
+
+  .list__wrapper,
+  .info__wrapper {
+    margin: 0 1rem 0.5rem 1rem;
+  }
+
+  .info__wrapper {
+    padding: 0.5rem;
+  }
 }

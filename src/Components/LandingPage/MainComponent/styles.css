@@ -6,8 +6,7 @@
 }
 
 .hero__section {
-    padding: 4rem 2rem;
-    padding-bottom: 2rem;
+    padding: 2.5rem 2rem 1rem 2rem;
     justify-content: space-between;
     align-items: flex-start !important;
     overflow-x: hidden;
@@ -55,11 +54,10 @@
 .gradient-img {
     display: inline-block;
     position: absolute;
-    width: 17dvw;
-    max-width: 300px;
-    min-width: 260px;
+    width: 20dvw;
+    max-width: 260px;
+    min-width: 210px;
     transition: var(--transition-fast);
-
 }
 
 .iphone-img {
@@ -98,7 +96,7 @@
 
     .hero__img_div {
         margin: 0 auto;
-        margin-top: 2.5rem;
+        /* margin-top: 2rem; */
         width: 90%;
     }
 }
@@ -119,7 +117,7 @@
     }
 
     .btns.flex-div {
-        margin-top: 2rem;
+        margin-top: 0.5rem;
         justify-content: center;
         gap: 2rem;
     }
