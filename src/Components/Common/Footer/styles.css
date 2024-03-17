@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    margin: 2rem ;
+    margin: 2rem 2rem 1rem 2rem;
     height: auto;
     border-radius: 0.75rem;
     background: linear-gradient(
@@ -13,13 +13,22 @@
       rgba(141,45,226,1) 100%
     );
     background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    animation: gradient cubic-bezier(0.55, 0.055, 0.675, 0.19) ease-out infinite;
   }
   
   .footer h2 {
     cursor: pointer;
   }
   
+  .footer .logo{
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .footer .logo:hover{
+    transform: scale(1.1);
+    text-shadow: var(--purple-light) 0 0 20px 5px;
+  }
   .social-links {
     display: flex;
     justify-content: flex-end;
@@ -30,11 +39,13 @@
   .social-link {
     color: var(--white);
     font-size: 2rem !important;
-    transition: all 0.2s ease-in-out !important;
+    transition: all 0.5s ease !important;
+    padding-top: 4px;
   }
   
   .social-link:hover {
-    transform: scale(1.2);
+    transform: scale(1.6);
+    padding-inline: 10px;
   }
   
   @keyframes gradient {
@@ -51,8 +62,7 @@
   
   @media only screen and (max-width: 800px) {
     .footer {
-      margin: 1.5rem 0.5rem;
-      margin-bottom: 6rem;
+      margin: 1rem 0.5rem;
     }
   
     .footer h2 {
@@ -63,7 +73,7 @@
       gap: 0.5rem;
     }
     .social-link {
-      font-size: 1rem !important;
+      font-size: 1.1rem !important;
     }
   }
   

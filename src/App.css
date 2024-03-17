@@ -3,12 +3,14 @@
   /* height: 100dvh; */
   margin: auto;
 }
-body{
-  height: 100dvh;
+
+.App{
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-/* .App{
-  height: 100dvh;
-} */
+
 .list__wrapper {
   margin: 0 1.5rem 0.5rem 1.5rem;
   box-sizing: border-box;

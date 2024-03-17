@@ -99,7 +99,7 @@ const CoinPage = () => {
   }
 
   return (
-    <div>
+    <div style={{flexGrow: 1, position: "relative"}}>
       {loading ? (
         <Loader />
       ) : (

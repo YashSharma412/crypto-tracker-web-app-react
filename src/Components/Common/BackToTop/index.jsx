@@ -5,35 +5,38 @@ import { Tooltip } from "@mui/material";
 import "./styles.css";
 
 const BackToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.pageYOffset > 250) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 200) {
+      setVisible(true);
+    } else if (scrolled <= 200) {
+      setVisible(false);
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour 
+         in place of 'smooth' */
     });
   };
 
+  window.addEventListener("scroll", toggleVisible);
+
   return (
-    <Button className={`backToTop-btn ${isVisible ? "visible" : ""}`} onClick={scrollToTop}>
+    <Button
+      className={`backToTop-btn ${visible ? "" : "hidden"}`}
+      outlined
+      onClick={scrollToTop}
+    >
       <Tooltip placement="top" title="Scroll to the top!" arrow>
-        <NavigationRoundedIcon />
+        <NavigationRoundedIcon
+          className="top-arrow"
+        />
       </Tooltip>
     </Button>
   );

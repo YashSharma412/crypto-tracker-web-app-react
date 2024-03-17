@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function get120Coins() {
   if(localStorage.getItem("allCoins") && localStorage.getItem("allCoins").length > 0) {
-    console.log("~~~~~fetched 120 coins from local storage~~~")
+    // console.log("~~~~~fetched 120 coins from local storage~~~")
     return JSON.parse(localStorage.getItem("allCoins"));
   }
   try {
@@ -38,7 +38,7 @@ async function get120Coins() {
   } catch (error) {
     // Handle the error here, you can log it or throw a custom error
     console.error("Error fetching 120 coins:", error);
-    throw new Error("Failed to fetch coins. Please try again later.");
+    throw new Error("Failed to fetch coins. Please try again later.", error);
   }
 }
 

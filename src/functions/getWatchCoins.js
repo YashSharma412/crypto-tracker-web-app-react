@@ -19,6 +19,7 @@ export async function getWatchCoins(){
             return data;
         } catch(e){
             console.error("getWatchCoins: ", e);
+            throw new Error("Failed to fetch watchList coins. Please try again later.", error);
         }
     } else {
         return []

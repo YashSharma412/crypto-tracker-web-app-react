@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.css";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import EmailIcon from "@mui/icons-material/Email";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
@@ -13,7 +12,7 @@ function Footer() {
     document.documentElement.scrollTop = 0;
   }
   return (
-    <div className="footer">
+    <footer className="footer">
       <h2 className="logo" onClick={() => topFunction()}>
         CryptoTracker<span>.</span>
       </h2>
@@ -37,7 +36,7 @@ function Footer() {
           <GitHubIcon className="social-link" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }
 

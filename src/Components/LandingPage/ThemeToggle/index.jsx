@@ -9,7 +9,7 @@ import ThemeContext from "../../../Contexts/themes/ThemeContext";
 
 
 export default function ThemeToggle() {
-  const {isChecked, setIsChecked, toggleTheme} = useContext(ThemeContext); // Initialize with your desired initial value
+  const {isChecked, toggleTheme} = useContext(ThemeContext); // Initialize with your desired initial value
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,

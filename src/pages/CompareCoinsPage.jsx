@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {motion} from "framer-motion";
 
 // ! components import
@@ -14,6 +14,8 @@ import getCoinDetails from "../functions/getCoinDetails";
 import ShortenCoinDetailsData from "../functions/ShortenCoinDetailsData";
 import settingCoinChartData from "../functions/settingCoinChartData";
 import getCoinMarketChartData from "../functions/getCoinMarketChartData";
+// import ErrorContext from "../Contexts/errors/ErrorContext";
+import { useNavigate } from "react-router-dom";
 
 const CompareCoinsPage = () => {
   const [loading, setLoading] = useState(true);
@@ -30,6 +32,9 @@ const CompareCoinsPage = () => {
   // 
   const [chartDataCoin1, setChartDataCoin1] = useState(null);
   const [chartDataCoin2, setChartDataCoin2] = useState(null);
+
+  // const {errMsg, setErrMsg} = useContext(ErrorContext);
+  const navigate = useNavigate();
   // ! On Page Load:
   
   useEffect(() => {
@@ -126,8 +131,9 @@ const CompareCoinsPage = () => {
         );
       }
     } catch (err) {
-      console.error(err);
-      console.error("Error fetching updated details for : " + newId);
+      console.error("Error fetching updated details for : " + newId, err);
+      // setErrMsg("Error fetching updated details for : " + newId + err.toString());
+      // navigate("/error");
     } finally {
       setLoading(false);
     }
@@ -188,7 +194,7 @@ const CompareCoinsPage = () => {
     margin: "1.5rem 1rem 0rem 1rem",
   };
   return (
-    <div>
+    <div style={{flexGrow: 1, position: "relative"}}>
       {loading ? (
         <Loader />
       ) : (

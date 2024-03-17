@@ -4,7 +4,6 @@ import TemporaryDrawer from "./Drawer";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
-  
   useEffect(() => {
     console.log("<<<<<--- Header Mounts --->>>>>");
     const interval = setInterval(() => {
@@ -30,7 +29,7 @@ const Header = () => {
       <h1 className="logo" onClick={() => navigate("/")}>
         CryptoTracker<span>.</span>
       </h1>
-      <Navbar />
+      <Navbar isMob={false}/>
       <div className="mobile__drawer">
         <TemporaryDrawer />
       </div>

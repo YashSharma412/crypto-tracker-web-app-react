@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +12,7 @@ import CompareCoinsPage from "./pages/CompareCoinsPage.jsx";
 import Header from "./Components/Common/Header/index.jsx";
 import Footer from "./Components/Common/Footer/index.jsx";
 import BackToTop from "./Components/Common/BackToTop/index.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 function App() {
 
@@ -29,14 +30,16 @@ function App() {
         pauseOnHover
         theme="dark"
       />
+      <BackToTop />
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<DashBoardPage />} />
-        <Route path="/watchlist" element={<WatchlistPage />} />
-        <Route path="/compare" element={<CompareCoinsPage />} />
-        <Route path="/coin/:id" element={<CoinPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<DashBoardPage />} />
+          <Route path="/watchlist" element={<WatchlistPage />} />
+          <Route path="/compare" element={<CompareCoinsPage />} />
+          <Route path="/coin/:id" element={<CoinPage />} />
+          <Route path="/error" element={<ErrorPage />} />
+        </Routes>
       <Footer />
     </div>
   );

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TabsComponent from "../Components/Dashboard/TabsComponent";
 import Search from "../Components/Dashboard/Search";
 import PaginationNav from "../Components/Dashboard/PaginationNav";
 import BackToTop from "../Components/Common/BackToTop";
 import get120Coins from "../functions/get120Coins";
+import ErrorContext from "../Contexts/errors/ErrorContext";
+import { useNavigate } from "react-router-dom";
 
 const DashBoardPage = () => {
   const [coins, setCoins] = useState([]);
@@ -11,7 +13,8 @@ const DashBoardPage = () => {
   const [page, setPage] = React.useState(1);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const {errMsg, setErrMsg} = useContext(ErrorContext)
+  const navigate = useNavigate()
   // ! 1.) Handle Pagination
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -43,6 +46,8 @@ const DashBoardPage = () => {
       
     } catch (err) {
       console.log("error caught in 120 coins fetch: ",err );
+      setErrMsg("error caught in 120 coins fetch: " + err.toString());
+      navigate("/error");
     } finally {
       setLoading(false);
     }
@@ -55,10 +60,9 @@ const DashBoardPage = () => {
   }, []);
 
   return (
-    <div>
-      {/* <ScrollToTop /> */}
-      <div style={{ paddingBottom: "0.5rem" }}></div>
-      <section className="dashBoard__main" style={{position: "relative"}}>
+    <>
+      {/* <div style={{ paddingBottom: "0.5rem" }}></div> */}
+      <section className="dashBoard__main" style={{position: "relative", flexGrow: 1}}>
             <Search searchQuery={searchQuery} onSearchChange={onSearchChange} />
             <TabsComponent loading={loading} coins={searchQuery ? filteredCoins : paginatedCoins} />
             {
@@ -66,7 +70,7 @@ const DashBoardPage = () => {
               <PaginationNav page={page} handlePageChange={handlePageChange}/>
             } 
       </section>
-    </div>
+    </>
   );
 };
 

@@ -16,6 +16,7 @@ const getCoinDetails = async (id) => {
     return response.data;
   } catch (err) {
     console.error("Error fetching coin details:", err.message);
+    throw new Error("!! failed to fetch coin details for: " + id, err)
   }
 };
 

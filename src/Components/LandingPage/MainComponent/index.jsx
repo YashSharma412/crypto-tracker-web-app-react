@@ -7,6 +7,7 @@ import iphone2 from "../../../assets/Images/phone2.png";
 import imgGradient from "../../../assets/Images/Amin.png";
 import Button from "../../Common/Button";
 import ShareButton from "../ShareButton";
+import BackToTop from "../../Common/BackToTop";
 
 const MainComponent = () => {
   const navigate = useNavigate();

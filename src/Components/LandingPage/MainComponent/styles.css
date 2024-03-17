@@ -6,9 +6,10 @@
 }
 
 .hero__section {
-    padding: 2.5rem 2rem 1rem 2rem;
+    flex-grow: 1;
+    padding: 2.5rem 3.5rem 1rem 3.5rem;
     justify-content: space-between;
-    align-items: flex-start !important;
+    align-items: center !important;
     overflow-x: hidden;
 }
 
@@ -38,16 +39,15 @@
 }
 
 .btns {
-    margin: 1.5rem 0 0 0;
+    margin: 2rem 0 0 0;
 }
 
 .hero__img_div {
     position: relative;
-    margin-top: 1rem;
-    padding: 0 1rem;
-    max-width: 340px;
-    min-width: 280px;
-    aspect-ratio: 4/7;
+    padding: 0 7rem 0 0;
+    max-width: 260px;
+    min-width: 210px;
+    aspect-ratio: 3/7;
 }
 
 .iphone-img,
@@ -55,7 +55,7 @@
     display: inline-block;
     position: absolute;
     width: 20dvw;
-    max-width: 260px;
+    max-width: 250px;
     min-width: 210px;
     transition: var(--transition-fast);
 }
@@ -96,12 +96,17 @@
 
     .hero__img_div {
         margin: 0 auto;
-        /* margin-top: 2rem; */
+        padding: 0 1rem 0 1rem;
         width: 90%;
     }
+
 }
 
 @media only screen and (max-width: 645px) {
+    .hero__section {
+        padding: 1.75rem 1.5rem 1rem 1.5rem;
+
+    }
 
     .hero__heading {
         font-size: 3.5rem;
@@ -117,8 +122,26 @@
     }
 
     .btns.flex-div {
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
         justify-content: center;
         gap: 2rem;
     }
+
+    .hero__img_div {
+        aspect-ratio: 3.5/7;
+        margin: 0 auto;
+        padding: 0 1rem 0 1rem;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .hero__heading {
+        font-size: 3rem;
+    }
+
+    .hero__heading:nth-child(2) {
+        font-size: 2.6rem;
+    }
+
 }

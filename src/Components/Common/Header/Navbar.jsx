@@ -7,17 +7,17 @@ import ThemeToggle from "../../LandingPage/ThemeToggle";
 const Navbar = ({isMob}) => {
   const navigate = useNavigate()
   return (
-    <ul className="navbar__links drawer">
+    <ul className={`navbar__links ${isMob && "drawer"}`}>
       <li>
         <ThemeToggle />
       </li>
-      <li>
+      <li className={!isMob && `nav__link-cont`}>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className={!isMob && `nav__link-cont`}>
         <NavLink to="/watchlist">WatchList</NavLink>
       </li>
-      <li>
+      <li className={!isMob && `nav__link-cont`}>
         <NavLink to="/compare">Compare</NavLink>
       </li>
       <li>
