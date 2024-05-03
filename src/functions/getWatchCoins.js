@@ -9,6 +9,7 @@ export async function getWatchCoins(){
                 params: {
                     vs_currency: "usd",
                     ids: watchlist.join(","),
+                    x_cg_demo_api_key: "CG-LYJnnBSiMXWPBwADnGqRN4Sq"
                 }
             })
             if(response.status !== 200){

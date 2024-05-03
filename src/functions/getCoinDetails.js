@@ -8,7 +8,7 @@ const getCoinDetails = async (id) => {
     }
 
     const response = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${id}`
+      `https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-LYJnnBSiMXWPBwADnGqRN4Sq`
     );
     if(!response){
       throw new Error("!! failed to fetch coin details for: " + id);

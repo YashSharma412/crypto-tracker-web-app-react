@@ -14,6 +14,7 @@ async function getCoinMarketChartData(id, days) {
           vs_currency: "usd",
           days: days,
           interval: "daily",
+          x_cg_demo_api_key: "CG-LYJnnBSiMXWPBwADnGqRN4Sq"
         },
       }
     );

@@ -17,6 +17,7 @@ async function get120Coins() {
           page: 1,
           sparkline: false,
           locale: "en",
+          x_cg_demo_api_key: "CG-LYJnnBSiMXWPBwADnGqRN4Sq"
         },
       }
     );
